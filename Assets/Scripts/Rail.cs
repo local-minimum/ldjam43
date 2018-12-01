@@ -22,6 +22,8 @@ public struct RailPos
 public enum RailTrack
 {
     SouthNorth, NorthSouth, WestEast, EastWest,
+    SouthWest, SouthEast, EastSouth, WestSouth,
+    NorthWest, NorthEast, WestNorth, EastNorth,
 };
 
 public class Rail : MonoBehaviour {
@@ -92,7 +94,19 @@ public class Rail : MonoBehaviour {
     {
         Transform source = GetSourceConnector(track);
         Transform target = GetTargetConnector(track);
-        float length = Vector3.Distance(target.position, source.position);
+        float length;
+        switch (track)
+        {
+            case RailTrack.NorthSouth:
+            case RailTrack.SouthNorth:
+            case RailTrack.WestEast:
+            case RailTrack.EastWest:
+                length = Vector3.Distance(target.position, source.position);
+                break;
+            default:
+                length = Mathf.PI * 0.5f * Mathf.Abs(source.position.x - target.position.x);
+                break;
+        }        
         float progress = distance / length;
         overshoot = Mathf.Max(0, distance - length);
         return Vector3.Lerp(source.position, target.position, progress);        
