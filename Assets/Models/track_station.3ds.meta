@@ -1,15 +1,24 @@
 fileFormatVersion: 2
-guid: ed0151e24246a7f48a72c87fb9adac2c
+guid: 6d06ee2f38a2fb04a908de54611276b4
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
-    100000: //RootNode
-    400000: //RootNode
-    2100000: Brown
-    2100002: Green
-    2300000: //RootNode
-    3300000: //RootNode
-    4300000: Tree 2
+    100000: Station
+    100002: Track straig
+    100004: //RootNode
+    400000: Station
+    400002: Track straig
+    400004: //RootNode
+    2100000: Gray
+    2100002: Red
+    2100004: Dark gray
+    2100006: Beige
+    2300000: Station
+    2300002: Track straig
+    3300000: Station
+    3300002: Track straig
+    4300000: Station
+    4300002: Track straig
   externalObjects: {}
   materials:
     importMaterials: 1
@@ -41,7 +50,7 @@ ModelImporter:
     isReadable: 1
   meshes:
     lODScreenPercentages: []
-    globalScale: 0.5
+    globalScale: 0.1
     meshCompression: 0
     addColliders: 0
     importVisibility: 1
