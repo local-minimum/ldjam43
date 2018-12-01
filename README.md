@@ -13,4 +13,4 @@
 * God trying to make your people stop sacrificing things and people but they really want to do it!
 * Cooking game. Make cool deamons or something by combining the right recipes.
 * Trolley problem-game
-test
+* At the altar you have options of what you can give up (color vision, get bad sight, jumping, going backwards, your soul(faster loss of life)). But you need to make sacrifices to replentish your life-force.
