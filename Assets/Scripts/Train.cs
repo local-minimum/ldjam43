@@ -22,6 +22,7 @@ public class Train : MonoBehaviour {
     {
         handler = FindObjectOfType<RailHandler>();
     }
+
     void Update () {
         if (!rail)
         {
@@ -51,4 +52,9 @@ public class Train : MonoBehaviour {
         transform.position = position;
         transform.rotation = rotation;
 	}
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        Debug.Log(collision.gameObject.name);
+    }
 }
