@@ -3,3 +3,4 @@
 ## Ideas
 
 * Religion-sim. You have skills with cooldowns to scare or aid a vilage. You level up by them becoming more fanatic and the end goal is to make them sacrifice a first born.
+* Climate change game, try to balance your life and figure out what you need to give up to lessen your footprint.
