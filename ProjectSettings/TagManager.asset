@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - Train
+  - People
   layers:
   - Default
   - TransparentFX

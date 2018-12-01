@@ -56,16 +56,22 @@ public class Train : MonoBehaviour {
     private void OnCollisionEnter(Collision collision)
     {
         Debug.Log(collision.gameObject.name);
-        var contact = collision.contacts[0];
-        collision.rigidbody.AddForceAtPosition(contact.normal*-70, contact.point + Vector3.up * 0.4f);
-        StartCoroutine(Kill(collision.gameObject));
-        GetComponent<Rigidbody>().velocity = Vector3.zero;
-        GetComponent<Rigidbody>().angularVelocity = Vector3.zero;
+        if (collision.collider.tag == "People")
+        {
+            var contact = collision.contacts[0];
+            collision.rigidbody.AddForceAtPosition(contact.normal * -70, contact.point + Vector3.up * 0.4f);
+            StartCoroutine(Kill(collision.collider.gameObject));
+            GetComponent<Rigidbody>().velocity = Vector3.zero;
+            GetComponent<Rigidbody>().angularVelocity = Vector3.zero;
+        } else if (collision.collider.tag == "Train")
+        {
+            Time.timeScale = 0f;
+        }
     }
 
     IEnumerator<WaitForSeconds> Kill(GameObject go)
     {
         yield return new WaitForSeconds(2f);
-        //GameObject.Destroy(go);
+        GameObject.Destroy(go);
     }
 }
