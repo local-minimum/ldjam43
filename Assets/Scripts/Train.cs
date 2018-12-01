@@ -10,7 +10,7 @@ public class Train : MonoBehaviour {
     Rail rail;
 
     [SerializeField]
-    RailTrack railConnector = RailTrack.SouthNorth;
+    RailTrack track = RailTrack.SouthNorth;
 
     float localDistance = 0;
 
@@ -29,17 +29,20 @@ public class Train : MonoBehaviour {
         }
         localDistance += Time.deltaTime * speed;
         float overshoot;
-        Vector3 position = rail.GetPosition(railConnector, localDistance, out overshoot);
+        Vector3 position = rail.GetPosition(track, localDistance, out overshoot);
+        Quaternion rotation = rail.GetRotaion(track, localDistance);
         while (overshoot > 0f)
         {
-            RailPos pos = rail.GetNextTilePos(railConnector);
+            RailPos pos = rail.GetNextTilePos(track);
             Debug.Log(pos);
             rail = handler.FindRailAtCoordinates(pos);
             localDistance = overshoot;
             if (!rail) break;
-            position = rail.GetPosition(railConnector, localDistance, out overshoot);
+            position = rail.GetPosition(track, localDistance, out overshoot);
+            rotation = rail.GetRotaion(track, localDistance);
         }
         position.y = transform.position.y;
         transform.position = position;
+        transform.rotation = rotation;
 	}
 }

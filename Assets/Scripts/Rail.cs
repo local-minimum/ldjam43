@@ -98,6 +98,22 @@ public class Rail : MonoBehaviour {
         return Vector3.Lerp(source.position, target.position, progress);        
     }
 
+    public Quaternion GetRotaion(RailTrack track, float distance)
+    {
+        Transform source = GetSourceConnector(track);
+        Transform target = GetTargetConnector(track);
+        switch (track)
+        {
+            case RailTrack.SouthNorth:
+            case RailTrack.EastWest:
+            case RailTrack.NorthSouth:
+            case RailTrack.WestEast:
+                return Quaternion.LookRotation((target.position - source.position).normalized, Vector3.up);
+            default:
+                throw new System.ArgumentException();
+        }
+    }
+
     public RailTrack FindSourceConnector(Vector3 position)
     {
         float proximityThreshold = 0.05f;
