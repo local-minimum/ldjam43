@@ -60,11 +60,12 @@ public class Train : MonoBehaviour {
         collision.rigidbody.AddForceAtPosition(contact.normal*-70, contact.point + Vector3.up * 0.4f);
         StartCoroutine(Kill(collision.gameObject));
         GetComponent<Rigidbody>().velocity = Vector3.zero;
+        GetComponent<Rigidbody>().angularVelocity = Vector3.zero;
     }
 
     IEnumerator<WaitForSeconds> Kill(GameObject go)
     {
         yield return new WaitForSeconds(2f);
-        GameObject.Destroy(go);
+        //GameObject.Destroy(go);
     }
 }
