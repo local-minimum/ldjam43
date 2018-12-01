@@ -77,7 +77,6 @@ public class Rail : MonoBehaviour {
         float length = Vector3.Distance(target.position, source.position);
         float progress = distance / length;
         overshoot = Mathf.Max(0, length - distance);
-        return Vector3.Lerp(source.position, target.position, progress);
-        
+        return Vector3.Lerp(source.position, target.position, progress);        
     }
 }
