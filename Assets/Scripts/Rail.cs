@@ -289,8 +289,9 @@ public class Rail : MonoBehaviour {
         }
     }
 
-    public void Switch()
+    public int Switch()
     {
         trackSwitch = (trackSwitch + 1) % 2;
+        return trackSwitch;
     }
 }
