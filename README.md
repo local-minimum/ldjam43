@@ -2,10 +2,8 @@
 
 ## ToDo
 
-* Make all tiles
-* Trainstation -> Monney
+* Trainstation -> $$$
 * People Deaths -> Event (Negative Goodwill, Add NEWS).
-* TrainSpawner
 * End of Play 1 (When trains collide)
 * End of Play 2 (Financial ruins)
 * End of Play 3 (Revolution, People Hate you)
