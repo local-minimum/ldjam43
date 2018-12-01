@@ -865,6 +865,7 @@ GameObject:
   - component: {fileID: 975405142}
   - component: {fileID: 975405143}
   - component: {fileID: 975405139}
+  - component: {fileID: 975405140}
   m_Layer: 9
   m_Name: Train
   m_TagString: Untagged
@@ -885,6 +886,21 @@ CapsuleCollider:
   m_Height: 0.85
   m_Direction: 2
   m_Center: {x: 0, y: 0.65, z: -0.09}
+--- !u!54 &975405140
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 975405138}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!4 &975405142
 Transform:
   m_ObjectHideFlags: 0
@@ -1318,10 +1334,25 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.56649774
-  m_Height: 1.7265003
+  m_Radius: 0.52
+  m_Height: 2.21
   m_Direction: 1
   m_Center: {x: -0.0000008940697, y: 0.8653506, z: -0.0000003874302}
+--- !u!54 &1341299504
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1341299499}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1001 &1436522799
 Prefab:
   m_ObjectHideFlags: 0
@@ -1772,7 +1803,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 400000, guid: 53d938f09ef967d4ab98db6aeeb0b1df, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.14
+      value: 1.07
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 53d938f09ef967d4ab98db6aeeb0b1df, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1780,7 +1811,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 53d938f09ef967d4ab98db6aeeb0b1df, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 3.06
+      value: -0.14
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 53d938f09ef967d4ab98db6aeeb0b1df, type: 3}
       propertyPath: m_LocalRotation.x
@@ -2047,7 +2078,7 @@ GameObject:
   - component: {fileID: 2086425888}
   - component: {fileID: 2086425887}
   - component: {fileID: 2086425886}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Ground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
