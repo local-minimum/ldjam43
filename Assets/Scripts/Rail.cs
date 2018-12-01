@@ -101,23 +101,26 @@ public class Rail : MonoBehaviour {
         throw new System.ArgumentException();
     }
 
-    public Vector3 GetPosition(RailTrack track, float distance, out float overshoot)
+    float GetTrackLength(RailTrack track)
     {
         Transform source = GetSourceConnector(track);
         Transform target = GetTargetConnector(track);
-        float length;
         switch (track)
         {
             case RailTrack.NorthSouth:
             case RailTrack.SouthNorth:
             case RailTrack.WestEast:
             case RailTrack.EastWest:
-                length = Vector3.Distance(target.position, source.position);
-                break;
+                return Vector3.Distance(target.position, source.position);
             default:
-                length = Mathf.PI * 0.5f * Mathf.Abs(source.position.x - target.position.x);
-                break;
-        }        
+                return Mathf.PI * 0.5f * Mathf.Abs(source.position.x - target.position.x);
+        }
+    }
+    public Vector3 GetPosition(RailTrack track, float distance, out float overshoot)
+    {
+        Transform source = GetSourceConnector(track);
+        Transform target = GetTargetConnector(track);
+        float length = GetTrackLength(track);
         float progress = distance / length;
         overshoot = Mathf.Max(0, distance - length);
 
@@ -167,8 +170,40 @@ public class Rail : MonoBehaviour {
             case RailTrack.NorthSouth:
             case RailTrack.WestEast:
                 return Quaternion.LookRotation((target.position - source.position).normalized, Vector3.up);
+            case RailTrack.NorthWest:
+                float length = GetTrackLength(track);
+                float angle = 180 + 90 * Mathf.Min(1, distance / length);
+                return Quaternion.AngleAxis(angle, Vector3.up);
+            case RailTrack.NorthEast:
+                length = GetTrackLength(track);
+                angle = 180 - 90 * Mathf.Min(1, distance / length);
+                return Quaternion.AngleAxis(angle, Vector3.up);
+            case RailTrack.EastNorth:
+                length = GetTrackLength(track);
+                angle = 270 + 90 * Mathf.Min(1, distance / length);
+                return Quaternion.AngleAxis(angle, Vector3.up);
+            case RailTrack.EastSouth:
+                length = GetTrackLength(track);
+                angle = 270 - 90 * Mathf.Min(1, distance / length);
+                return Quaternion.AngleAxis(angle, Vector3.up);
+            case RailTrack.SouthEast:
+                length = GetTrackLength(track);
+                angle = 0 + 90 * Mathf.Min(1, distance / length);
+                return Quaternion.AngleAxis(angle, Vector3.up);
+            case RailTrack.SouthWest:
+                length = GetTrackLength(track);
+                angle = 0 - 90 * Mathf.Min(1, distance / length);
+                return Quaternion.AngleAxis(angle, Vector3.up);
+            case RailTrack.WestSouth:
+                length = GetTrackLength(track);
+                angle = 90 + 90 * Mathf.Min(1, distance / length);
+                return Quaternion.AngleAxis(angle, Vector3.up);
+            case RailTrack.WestNorth:
+                length = GetTrackLength(track);
+                angle = 90 - 90 * Mathf.Min(1, distance / length);
+                return Quaternion.AngleAxis(angle, Vector3.up);
             default:
-                return Quaternion.identity;
+                throw new System.ArgumentException();
         }
     }
 
