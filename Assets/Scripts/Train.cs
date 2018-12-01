@@ -58,9 +58,8 @@ public class Train : MonoBehaviour {
         Debug.Log(collision.gameObject.name);
         if (collision.collider.tag == "People")
         {
-            var contact = collision.contacts[0];
-            collision.rigidbody.AddForceAtPosition(contact.normal * -70, contact.point + Vector3.up * 0.4f);
-            collision.collider.GetComponent<Person>().Kill();            
+            var contact = collision.contacts[0];            
+            collision.collider.GetComponent<Person>().Kill(contact.point + Vector3.up * 0.4f, contact.normal * -70);            
             GetComponent<Rigidbody>().velocity = Vector3.zero;
             GetComponent<Rigidbody>().angularVelocity = Vector3.zero;
         } else if (collision.collider.tag == "Train")
