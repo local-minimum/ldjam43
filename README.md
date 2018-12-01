@@ -17,3 +17,4 @@
 * Temple/religion career game, make more and more sacrifices (your own or others) to progress. Unclear if progressing is actually good for you.
 * Procedural branching options game trying to guide people/group as a deity, where they constantly make poor decisions and blame you or try to sacrifice important things to you.
 * Reverse climate change game. Trend in game society is for more sustainable society, player needs to actively counter this trend to protect consumption-based economy! (sacrificing future generations, bio diversity etc in the process).
+* Save the marriage, loose yourself - the game. You must compromise, feeling more and more depressed/bad in order to keep marriage alive.
