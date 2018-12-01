@@ -1,4 +1,4 @@
-# LDJAM43
+# LDJAM43 (Sacrifices must be made)
 
 ## Ideas
 
