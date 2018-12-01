@@ -4,19 +4,19 @@ using UnityEngine;
 
 public class RailHandler : MonoBehaviour {
 
-	// Use this for initialization
+    Rail[] rails;
+
 	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
+        rails = FindObjectsOfType<Rail>();
+    }
 
-	}
-
-    public Rail FindRailAtCoordinates(long X, long Y)
+    public Rail FindRailAtCoordinates(RailPos pos)
     {
-        var rails = FindObjectsOfType<Rail>();
+        return FindRailAtCoordinates(pos.x, pos.y);
+    }
+
+    public Rail FindRailAtCoordinates(int X, int Y)
+    {
         for (int i=0;i<rails.Length;++i)
         {
             var rail = rails[i];
@@ -25,7 +25,6 @@ public class RailHandler : MonoBehaviour {
                 return rail;
             }
         }
-
         return null;
     }
 }

@@ -2,6 +2,23 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+public struct RailPos
+{
+    public int x;
+    public int y;
+
+    public RailPos(int x, int y)
+    {
+        this.x = x;
+        this.y = y;
+    }
+
+    public override string ToString()
+    {
+        return string.Format("({0}, {1})", x, y);
+    }
+}
+
 public enum RailTrack
 {
     SouthNorth, NorthSouth, WestEast, EastWest,
@@ -50,7 +67,6 @@ public class Rail : MonoBehaviour {
         {
             return east;
         }
-
         throw new System.ArgumentException();
     }
 
@@ -72,13 +88,13 @@ public class Rail : MonoBehaviour {
         throw new System.ArgumentException();
     }
 
-    public Vector3 GetPosition(RailTrack sourceConnector, float distance, out float overshoot)
+    public Vector3 GetPosition(RailTrack track, float distance, out float overshoot)
     {
-        Transform source = GetSourceConnector(sourceConnector);
-        Transform target = GetTargetConnector(sourceConnector);
+        Transform source = GetSourceConnector(track);
+        Transform target = GetTargetConnector(track);
         float length = Vector3.Distance(target.position, source.position);
         float progress = distance / length;
-        overshoot = Mathf.Max(0, length - distance);
+        overshoot = Mathf.Max(0, distance - length);
         return Vector3.Lerp(source.position, target.position, progress);        
     }
 
@@ -99,5 +115,27 @@ public class Rail : MonoBehaviour {
             return RailTrack.EastWest;
         }
         throw new System.ArgumentException();
+    }
+
+    public RailPos GetNextTilePos(RailTrack track)
+    {
+        switch (track)
+        {
+            case RailTrack.EastWest:
+                return new RailPos(X - 1, Y);
+            case RailTrack.WestEast:
+                return new RailPos(X + 1, Y);
+            case RailTrack.NorthSouth:
+                return new RailPos(X, Y - 1);
+            case RailTrack.SouthNorth:
+                return new RailPos(X, Y + 1);
+            default:
+                throw new System.ArgumentException();
+        }
+    }
+
+    private void Start()
+    {
+        Debug.Log(string.Format("{0} {1} {2}", name, X, Y));
     }
 }
