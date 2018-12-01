@@ -11,17 +11,23 @@ public class TrackSignal : MonoBehaviour {
 
     private void Start()
     {
-        notStopping.SetActive(true);
-        isStopping.SetActive(false);
+        stopping = Random.value < 0.5f;
+        UpdateStopping();
     }
     private void OnMouseOver()
     {
         if (Input.GetMouseButtonDown(0))
         {
             stopping = !stopping;
-            notStopping.SetActive(!stopping);
-            isStopping.SetActive(stopping);
+            UpdateStopping();
         }
+    }
+
+    void UpdateStopping()
+    {
+        
+        notStopping.SetActive(!stopping);
+        isStopping.SetActive(stopping);
     }
 
     public bool Stopping {

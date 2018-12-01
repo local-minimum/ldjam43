@@ -12,18 +12,26 @@ public class TrackSwitch : MonoBehaviour {
 
     private void Start()
     {
-        switchOne.SetActive(true);
-        switchTwo.SetActive(false);
+        int mode = 0;
         rail = GetComponent<Rail>();
+        for (int i=0, l=Random.RandomRange(1, 2); i<l; i++)
+        {
+            mode = rail.Switch();
+        }
+        UpdateSwitch(mode);
     }
 
     private void OnMouseOver()
     {
         if (Input.GetMouseButtonDown(0))
         {
-            int mode = rail.Switch();
-            switchOne.SetActive(mode == 0);
-            switchTwo.SetActive(mode == 1);
+            UpdateSwitch(rail.Switch());
         }
+    }
+
+    private void UpdateSwitch(int mode)
+    {
+        switchOne.SetActive(mode == 0);
+        switchTwo.SetActive(mode == 1);
     }
 }

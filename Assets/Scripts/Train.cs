@@ -4,11 +4,8 @@ using UnityEngine;
 
 public class Train : MonoBehaviour {
 
-    RailHandler handler;
-    [SerializeField]
-    Rail rail;
-
-    [SerializeField]
+    RailHandler handler;   
+    Rail rail;    
     RailTrack track = RailTrack.SouthNorth;
 
     float localDistance = 0;
@@ -17,13 +14,30 @@ public class Train : MonoBehaviour {
     float speed = 0.1f;
 
     bool stopped = false;
+    bool underConstruction = true;
 
     private void Start()
     {
         handler = FindObjectOfType<RailHandler>();
     }
 
+    public void SetRailAndTrack(Rail rail, RailTrack track)
+    {
+        this.track = track;
+        this.rail = rail;
+        localDistance = 0;
+        float overshoot;
+        transform.position = rail.GetPosition(track, 0, out overshoot);
+        transform.rotation = rail.GetRotaion(track, 0);
+    }
+
+    public void SetBuilt()
+    {
+        underConstruction = false;
+    }
+
     void Update () {
+        if (underConstruction) return;
         if (!rail)
         {
             Debug.LogWarning("End of Line");
@@ -53,10 +67,18 @@ public class Train : MonoBehaviour {
         transform.rotation = rotation;
 	}
 
+    public bool isDangerous
+    {
+        get
+        {
+            return !(stopped || underConstruction);
+        }
+    }
+
     private void OnCollisionEnter(Collision collision)
     {
         Debug.Log(collision.gameObject.name);
-        if (collision.collider.tag == "People")
+        if (isDangerous && collision.collider.tag == "People")
         {
             var contact = collision.contacts[0];            
             collision.collider.GetComponent<Person>().Kill(contact.point + Vector3.up * 0.4f, contact.normal * -70);            
