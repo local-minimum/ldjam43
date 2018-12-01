@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class Person : MonoBehaviour {
 
-    private const float stepSize = 0.1f;
-
+    private const float stepSize = 1f;
+    
     [SerializeField]
     private int age;
 
@@ -648,6 +648,8 @@ public class Person : MonoBehaviour {
 
     };
 
+    bool alive = true;
+
     // Use this for initialization
     void Start()
     {
@@ -659,12 +661,13 @@ public class Person : MonoBehaviour {
 
     // Update is called once per frame
     void Update () {
+        if (!alive) return;
         if (IsInGoalPosition)
         {
             goalPosition = FindObjectOfType<World>().GetRandomPosition();
         }
 
-        Vector3 movement = new Vector3(stepSize * (Mathf.RoundToInt(goalPosition.x) == X ? 0 : goalPosition.x < X ? -1: 1), stepSize * (Mathf.RoundToInt(goalPosition.y) == Y ? 0 : goalPosition.y < Y ? -1 : 1), 0);
+        Vector3 movement = new Vector3(stepSize * Time.deltaTime * (Mathf.RoundToInt(goalPosition.x) == X ? 0 : goalPosition.x < X ? -1: 1), stepSize * (Mathf.RoundToInt(goalPosition.y) == Y ? 0 : goalPosition.y < Y ? -1 : 1), 0);
         transform.Translate(movement);
     }
 
@@ -690,5 +693,18 @@ public class Person : MonoBehaviour {
         {
             return Mathf.RoundToInt(transform.position.y);
         }
+    }
+
+    public void Kill()
+    {
+        alive = false;
+        StartCoroutine(_Kill());
+    }
+
+    IEnumerator<WaitForSeconds> _Kill()
+    {
+        Debug.LogWarning(string.Format("{0} who loved {1} got run over by a train at age {2}", personName, interests, age));
+        yield return new WaitForSeconds(2f);
+        Destroy(gameObject);
     }
 }

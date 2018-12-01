@@ -60,18 +60,15 @@ public class Train : MonoBehaviour {
         {
             var contact = collision.contacts[0];
             collision.rigidbody.AddForceAtPosition(contact.normal * -70, contact.point + Vector3.up * 0.4f);
-            StartCoroutine(Kill(collision.collider.gameObject));
+            collision.collider.GetComponent<Person>().Kill();            
             GetComponent<Rigidbody>().velocity = Vector3.zero;
             GetComponent<Rigidbody>().angularVelocity = Vector3.zero;
         } else if (collision.collider.tag == "Train")
         {
             Time.timeScale = 0f;
+            Debug.LogWarning("Trains collided, you loose!");
         }
     }
 
-    IEnumerator<WaitForSeconds> Kill(GameObject go)
-    {
-        yield return new WaitForSeconds(2f);
-        GameObject.Destroy(go);
-    }
+
 }
