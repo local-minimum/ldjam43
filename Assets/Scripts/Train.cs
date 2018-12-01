@@ -57,7 +57,7 @@ public class Train : MonoBehaviour {
     {
         Debug.Log(collision.gameObject.name);
         var contact = collision.contacts[0];
-        collision.rigidbody.AddForceAtPosition(contact.normal*-50, contact.point + Vector3.up * 0.4f);
+        collision.rigidbody.AddForceAtPosition(contact.normal*-70, contact.point + Vector3.up * 0.4f);
         StartCoroutine(Kill(collision.gameObject));
         GetComponent<Rigidbody>().velocity = Vector3.zero;
     }
