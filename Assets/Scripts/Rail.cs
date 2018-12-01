@@ -2,36 +2,21 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum RailConnector
+public enum RailTrack
 {
-    StraightA1, StraightA2, StraightB1, StraightB2,
+    SouthNorth, NorthSouth, WestEast, EastWest,
 };
 
 public class Rail : MonoBehaviour {
 
     [SerializeField]
-    Transform straightA1;
+    Transform south;
     [SerializeField]
-    Transform straightA2;
+    Transform north;
     [SerializeField]
-    Transform straightB1;
+    Transform west;
     [SerializeField]
-    Transform straightB2;
-    /*
-    [SerializeField]
-    Transform exitA2b;
-    [SerializeField]
-    Transform exitB1;
-    [SerializeField]
-    Transform exitB2;
-    */
-    void Start () {
-		
-	}
-	
-	void Update () {
-		
-	}
+    Transform east;
 
     public int X
     {
@@ -49,45 +34,45 @@ public class Rail : MonoBehaviour {
         }
     }
 
-    Transform GetSourceConnector(RailConnector connector)
+    Transform GetSourceConnector(RailTrack connector)
     {
-        if (connector == RailConnector.StraightA1)
+        if (connector == RailTrack.SouthNorth)
         {
-            return straightA1;
+            return south;
         }
-        else if (connector == RailConnector.StraightA2)
+        else if (connector == RailTrack.NorthSouth)
         {
-            return straightA2;
-        } else if (connector == RailConnector.StraightB1)
+            return north;
+        } else if (connector == RailTrack.WestEast)
         {
-            return straightB1;
-        } else if (connector == RailConnector.StraightB2)
+            return west;
+        } else if (connector == RailTrack.EastWest)
         {
-            return straightB2;
+            return east;
         }
 
         throw new System.ArgumentException();
     }
 
-    Transform GetTargetConnector(RailConnector connector)
+    Transform GetTargetConnector(RailTrack connector)
     {
-        if (connector == RailConnector.StraightA1)
+        if (connector == RailTrack.SouthNorth)
         {
-            return straightA2;
-        } else if ( connector == RailConnector.StraightA2)
+            return north;
+        } else if ( connector == RailTrack.NorthSouth)
         {
-            return straightA1;
-        } else if ( connector == RailConnector.StraightB1)
+            return south;
+        } else if ( connector == RailTrack.WestEast)
         {
-            return straightB2;
-        } else if ( connector == RailConnector.StraightB2)
+            return east;
+        } else if ( connector == RailTrack.EastWest)
         {
-            return straightB1;
+            return west;
         }
         throw new System.ArgumentException();
     }
 
-    public Vector3 GetPosition(RailConnector sourceConnector, float distance, out float overshoot)
+    public Vector3 GetPosition(RailTrack sourceConnector, float distance, out float overshoot)
     {
         Transform source = GetSourceConnector(sourceConnector);
         Transform target = GetTargetConnector(sourceConnector);
@@ -97,15 +82,21 @@ public class Rail : MonoBehaviour {
         return Vector3.Lerp(source.position, target.position, progress);        
     }
 
-    public RailConnector FindSourceConnector(Vector3 position)
+    public RailTrack FindSourceConnector(Vector3 position)
     {
         float proximityThreshold = 0.05f;
-        if (Vector3.Distance(position, straightA1.position) < proximityThreshold)
+        if (Vector3.Distance(position, south.position) < proximityThreshold)
         {
-            return RailConnector.StraightA1;
-        } else if (Vector3.Distance(position, straightA2.position) < proximityThreshold)
+            return RailTrack.SouthNorth;
+        } else if (Vector3.Distance(position, north.position) < proximityThreshold)
         {
-            return RailConnector.StraightA2;
+            return RailTrack.NorthSouth;
+        } else if (Vector3.Distance(position, west.position) < proximityThreshold)
+        {
+            return RailTrack.WestEast;
+        } else if (Vector3.Distance(position, east.position) < proximityThreshold)
+        {
+            return RailTrack.EastWest;
         }
         throw new System.ArgumentException();
     }

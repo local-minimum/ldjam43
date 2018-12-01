@@ -8,7 +8,7 @@ public class Train : MonoBehaviour {
     Rail rail;
 
     [SerializeField]
-    RailConnector railConnector = RailConnector.StraightA1;
+    RailTrack railConnector = RailTrack.SouthNorth;
 
     float localDistance = 0;
 
