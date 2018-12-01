@@ -79,4 +79,17 @@ public class Rail : MonoBehaviour {
         overshoot = Mathf.Max(0, length - distance);
         return Vector3.Lerp(source.position, target.position, progress);        
     }
+
+    public RailConnector FindSourceConnector(Vector3 position)
+    {
+        float proximityThreshold = 0.05f;
+        if (Vector3.Distance(position, exitA1.position) < proximityThreshold)
+        {
+            return RailConnector.A1;
+        } else if (Vector3.Distance(position, exitA2a.position) < proximityThreshold)
+        {
+            return RailConnector.A2a;
+        }
+        throw new System.ArgumentException();
+    }
 }
