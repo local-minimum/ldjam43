@@ -1,29 +1,28 @@
 fileFormatVersion: 2
-guid: 5c27d046549edbd43837e4ad0fd67c33
+guid: 25b3036f360b2684fbaa2e1dca067294
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
-    100000: Cylinder
+    100000: 'Track right '
     100002: Track straig
-    100004: //RootNode
-    100006: track signal
-    400000: Cylinder
+    100004: track switch
+    100006: //RootNode
+    400000: 'Track right '
     400002: Track straig
-    400004: //RootNode
-    400006: track signal
-    2100000: Green
+    400004: track switch
+    400006: //RootNode
+    2100000: Green light
     2100002: Gray
     2100004: Beige
-    2100006: Green light
-    2300000: Cylinder
+    2300000: 'Track right '
     2300002: Track straig
-    2300004: track signal
-    3300000: Cylinder
+    2300004: track switch
+    3300000: 'Track right '
     3300002: Track straig
-    3300004: track signal
-    4300000: Cylinder
+    3300004: track switch
+    4300000: track switch
     4300002: Track straig
-    4300004: track signal
+    4300004: 'Track right '
   externalObjects: {}
   materials:
     importMaterials: 1
