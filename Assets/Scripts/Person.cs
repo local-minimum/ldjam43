@@ -664,7 +664,7 @@ public class Person : MonoBehaviour {
             goalPosition = FindObjectOfType<World>().GetRandomPosition();
         }
 
-        Vector3 movement = new Vector3(stepSize * (goalPosition.x < X ? -1: 1), stepSize * (goalPosition.y < Y ? -1 : 1), 0);
+        Vector3 movement = new Vector3(stepSize * (Mathf.RoundToInt(goalPosition.x) == X ? 0 : goalPosition.x < X ? -1: 1), stepSize * (Mathf.RoundToInt(goalPosition.y) == Y ? 0 : goalPosition.y < Y ? -1 : 1), 0);
         transform.Translate(movement);
     }
 
