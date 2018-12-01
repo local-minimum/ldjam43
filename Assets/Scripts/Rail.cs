@@ -4,15 +4,19 @@ using UnityEngine;
 
 public enum RailConnector
 {
-    A1, A2a,
+    StraightA1, StraightA2, StraightB1, StraightB2,
 };
 
 public class Rail : MonoBehaviour {
 
     [SerializeField]
-    Transform exitA1;
+    Transform straightA1;
     [SerializeField]
-    Transform exitA2a;
+    Transform straightA2;
+    [SerializeField]
+    Transform straightB1;
+    [SerializeField]
+    Transform straightB2;
     /*
     [SerializeField]
     Transform exitA2b;
@@ -21,7 +25,7 @@ public class Rail : MonoBehaviour {
     [SerializeField]
     Transform exitB2;
     */
-	void Start () {
+    void Start () {
 		
 	}
 	
@@ -47,25 +51,38 @@ public class Rail : MonoBehaviour {
 
     Transform GetSourceConnector(RailConnector connector)
     {
-        if (connector == RailConnector.A1)
+        if (connector == RailConnector.StraightA1)
         {
-            return exitA1;
+            return straightA1;
         }
-        else if (connector == RailConnector.A2a)
+        else if (connector == RailConnector.StraightA2)
         {
-            return exitA2a;
+            return straightA2;
+        } else if (connector == RailConnector.StraightB1)
+        {
+            return straightB1;
+        } else if (connector == RailConnector.StraightB2)
+        {
+            return straightB2;
         }
+
         throw new System.ArgumentException();
     }
 
     Transform GetTargetConnector(RailConnector connector)
     {
-        if (connector == RailConnector.A1)
+        if (connector == RailConnector.StraightA1)
         {
-            return exitA2a;
-        } else if ( connector == RailConnector.A2a)
+            return straightA2;
+        } else if ( connector == RailConnector.StraightA2)
         {
-            return exitA1;
+            return straightA1;
+        } else if ( connector == RailConnector.StraightB1)
+        {
+            return straightB2;
+        } else if ( connector == RailConnector.StraightB2)
+        {
+            return straightB1;
         }
         throw new System.ArgumentException();
     }
@@ -83,12 +100,12 @@ public class Rail : MonoBehaviour {
     public RailConnector FindSourceConnector(Vector3 position)
     {
         float proximityThreshold = 0.05f;
-        if (Vector3.Distance(position, exitA1.position) < proximityThreshold)
+        if (Vector3.Distance(position, straightA1.position) < proximityThreshold)
         {
-            return RailConnector.A1;
-        } else if (Vector3.Distance(position, exitA2a.position) < proximityThreshold)
+            return RailConnector.StraightA1;
+        } else if (Vector3.Distance(position, straightA2.position) < proximityThreshold)
         {
-            return RailConnector.A2a;
+            return RailConnector.StraightA2;
         }
         throw new System.ArgumentException();
     }
