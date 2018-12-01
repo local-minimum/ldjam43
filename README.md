@@ -10,8 +10,9 @@
 * UI for the currencies ($$$ and Kills)
 * Highscore
 * People spawner
+* I think people need to be predictable for this to be fun (else you have no chance avoiding them at all).
 
 ## Issues
 
 * Mouse over should only check rail interactions not be affected by trains and people etc.
-* Trains only kill when moving
+
