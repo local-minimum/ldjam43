@@ -33,11 +33,11 @@ public class Train : MonoBehaviour {
         Quaternion rotation = rail.GetRotaion(track, localDistance);
         while (overshoot > 0f)
         {
-            RailPos pos = rail.GetNextTilePos(track);
-            Debug.Log(pos);
+            RailPos pos = rail.GetNextTilePos(track);                        
             rail = handler.FindRailAtCoordinates(pos);
             localDistance = overshoot;
             if (!rail) break;
+            track = rail.GetActiveTrack(position);
             position = rail.GetPosition(track, localDistance, out overshoot);
             rotation = rail.GetRotaion(track, localDistance);
         }

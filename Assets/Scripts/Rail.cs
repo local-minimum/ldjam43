@@ -55,37 +55,48 @@ public class Rail : MonoBehaviour {
 
     Transform GetSourceConnector(RailTrack connector)
     {
-        if (connector == RailTrack.SouthNorth)
+        switch (connector)
         {
-            return south;
-        }
-        else if (connector == RailTrack.NorthSouth)
-        {
-            return north;
-        } else if (connector == RailTrack.WestEast)
-        {
-            return west;
-        } else if (connector == RailTrack.EastWest)
-        {
-            return east;
+            case RailTrack.SouthNorth:
+            case RailTrack.SouthWest:
+            case RailTrack.SouthEast:
+                return south;
+            case RailTrack.NorthEast:
+            case RailTrack.NorthSouth:
+            case RailTrack.NorthWest:
+                return north;
+            case RailTrack.EastNorth:
+            case RailTrack.EastSouth:
+            case RailTrack.EastWest:
+                return east;
+            case RailTrack.WestEast:
+            case RailTrack.WestNorth:
+            case RailTrack.WestSouth:
+                return west;
         }
         throw new System.ArgumentException();
     }
 
     Transform GetTargetConnector(RailTrack connector)
     {
-        if (connector == RailTrack.SouthNorth)
+        switch (connector)
         {
-            return north;
-        } else if ( connector == RailTrack.NorthSouth)
-        {
-            return south;
-        } else if ( connector == RailTrack.WestEast)
-        {
-            return east;
-        } else if ( connector == RailTrack.EastWest)
-        {
-            return west;
+            case RailTrack.EastSouth:
+            case RailTrack.NorthSouth:
+            case RailTrack.WestSouth:
+                return south;
+            case RailTrack.EastWest:
+            case RailTrack.NorthWest:
+            case RailTrack.SouthWest:
+                return west;
+            case RailTrack.NorthEast:
+            case RailTrack.SouthEast:
+            case RailTrack.WestEast:
+                return east;
+            case RailTrack.EastNorth:
+            case RailTrack.SouthNorth:
+            case RailTrack.WestNorth:
+                return north;
         }
         throw new System.ArgumentException();
     }
@@ -109,7 +120,40 @@ public class Rail : MonoBehaviour {
         }        
         float progress = distance / length;
         overshoot = Mathf.Max(0, distance - length);
-        return Vector3.Lerp(source.position, target.position, progress);        
+
+        switch (track)
+        {
+            case RailTrack.NorthSouth:
+            case RailTrack.SouthNorth:
+            case RailTrack.WestEast:
+            case RailTrack.EastWest:
+                return Vector3.Lerp(source.position, target.position, progress);
+            case RailTrack.SouthEast:
+            case RailTrack.NorthWest:
+                Vector3 origo = new Vector3(target.position.x, source.position.y, source.position.z);
+                return GetTurnPosition(origo, source.position, progress, -1);
+            case RailTrack.EastNorth:
+            case RailTrack.WestSouth:
+                origo = new Vector3(source.position.x, source.position.y, target.position.z);
+                return GetTurnPosition(origo, source.position, progress, -1);
+            case RailTrack.NorthEast:
+            case RailTrack.SouthWest:
+                origo = new Vector3(target.position.x, source.position.y, source.position.z);
+                return GetTurnPosition(origo, source.position, progress, 1);
+            case RailTrack.EastSouth:
+            case RailTrack.WestNorth:
+                origo = new Vector3(source.position.x, source.position.y, target.position.z);
+                return GetTurnPosition(origo, source.position, progress, 1);
+            default:
+                throw new System.ArgumentException();
+        }
+    }
+
+    Vector3 GetTurnPosition(Vector3 origo, Vector3 source, float progress, float direction)
+    {
+        float r = Vector3.Distance(source, origo);
+        float angle = direction * Mathf.Min(1, progress) * 0.5f * Mathf.PI + Mathf.Atan2(source.z - origo.z, source.x - origo.x);
+        return new Vector3(Mathf.Cos(angle), 0, Mathf.Sin(angle)) * r + origo;
     }
 
     public Quaternion GetRotaion(RailTrack track, float distance)
@@ -124,11 +168,11 @@ public class Rail : MonoBehaviour {
             case RailTrack.WestEast:
                 return Quaternion.LookRotation((target.position - source.position).normalized, Vector3.up);
             default:
-                throw new System.ArgumentException();
+                return Quaternion.identity;
         }
     }
 
-    public RailTrack FindSourceConnector(Vector3 position)
+    public RailTrack GetActiveTrack(Vector3 position)
     {
         float proximityThreshold = 0.05f;
         if (Vector3.Distance(position, south.position) < proximityThreshold)
@@ -152,20 +196,23 @@ public class Rail : MonoBehaviour {
         switch (track)
         {
             case RailTrack.EastWest:
+            case RailTrack.NorthWest:
+            case RailTrack.SouthWest:
                 return new RailPos(X - 1, Y);
             case RailTrack.WestEast:
+            case RailTrack.NorthEast:
+            case RailTrack.SouthEast:
                 return new RailPos(X + 1, Y);
             case RailTrack.NorthSouth:
+            case RailTrack.EastSouth:
+            case RailTrack.WestSouth:
                 return new RailPos(X, Y - 1);
             case RailTrack.SouthNorth:
+            case RailTrack.EastNorth:
+            case RailTrack.WestNorth:
                 return new RailPos(X, Y + 1);
             default:
                 throw new System.ArgumentException();
         }
-    }
-
-    private void Start()
-    {
-        Debug.Log(string.Format("{0} {1} {2}", name, X, Y));
     }
 }

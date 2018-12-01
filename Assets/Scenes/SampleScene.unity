@@ -502,7 +502,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rail: {fileID: 946262893}
-  track: 2
+  track: 7
   speed: 0.4
 --- !u!1001 &1091520805
 Prefab:
