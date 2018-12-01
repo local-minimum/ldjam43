@@ -83,7 +83,7 @@ GameObject:
   - component: {fileID: 4710206801645804}
   - component: {fileID: 114918180787406354}
   m_Layer: 0
-  m_Name: RailNS
+  m_Name: RailStraightNS
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

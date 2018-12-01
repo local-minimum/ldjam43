@@ -53,7 +53,7 @@ GameObject:
   - component: {fileID: 4330843898144326}
   - component: {fileID: 114157567769814112}
   m_Layer: 0
-  m_Name: RailSE
+  m_Name: RailTurnSE
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

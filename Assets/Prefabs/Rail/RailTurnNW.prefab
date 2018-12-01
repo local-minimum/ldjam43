@@ -51,7 +51,7 @@ GameObject:
   - component: {fileID: 4475653947857644}
   - component: {fileID: 114598829359427578}
   m_Layer: 0
-  m_Name: RailNW
+  m_Name: RailTurnNW
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

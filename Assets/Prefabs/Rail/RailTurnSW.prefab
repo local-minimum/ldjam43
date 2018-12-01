@@ -98,7 +98,7 @@ GameObject:
   - component: {fileID: 4729285471227694}
   - component: {fileID: 114759460647285648}
   m_Layer: 0
-  m_Name: RailSW
+  m_Name: RailTurnSW
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

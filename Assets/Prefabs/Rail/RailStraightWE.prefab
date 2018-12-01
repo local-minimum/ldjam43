@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 65926643266828498}
   - component: {fileID: 114005689282672126}
   m_Layer: 0
-  m_Name: RailWE
+  m_Name: RailStraightWE
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
