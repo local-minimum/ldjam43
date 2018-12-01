@@ -19,7 +19,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4949446643493486}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: West
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -36,7 +36,7 @@ GameObject:
   - component: {fileID: 4663676903886182}
   - component: {fileID: 33772623210486432}
   - component: {fileID: 23686723540581550}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: track_switch_marker_curve
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -51,7 +51,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4276018628870102}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: East
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -66,7 +66,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4774840017479446}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: North
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -83,7 +83,7 @@ GameObject:
   - component: {fileID: 4102503568221610}
   - component: {fileID: 33789348998101840}
   - component: {fileID: 23094157814089416}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: track_curve
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -98,7 +98,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4513812758049434}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: South
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -115,7 +115,7 @@ GameObject:
   - component: {fileID: 4216948465356244}
   - component: {fileID: 33448939603800372}
   - component: {fileID: 23301859447527300}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: track_straight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -133,7 +133,7 @@ GameObject:
   - component: {fileID: 114489689712938504}
   - component: {fileID: 65201948235040844}
   - component: {fileID: 114027060676709472}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: RailSwitchWE_SW
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -150,7 +150,7 @@ GameObject:
   - component: {fileID: 4026731737338354}
   - component: {fileID: 33033453114713672}
   - component: {fileID: 23553309446565336}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: track_switch_marker_straight
   m_TagString: Untagged
   m_Icon: {fileID: 0}

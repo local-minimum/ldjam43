@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4394877776155264}
   - component: {fileID: 33279387665971216}
   - component: {fileID: 23495135927462510}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: track_curve
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -36,7 +36,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4655150704875446}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: West
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -52,7 +52,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4330843898144326}
   - component: {fileID: 114157567769814112}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: RailTurnSE
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -67,7 +67,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4066397174089670}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: East
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -82,7 +82,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4585915375925586}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: South
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -97,7 +97,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4759352397474712}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: North
   m_TagString: Untagged
   m_Icon: {fileID: 0}

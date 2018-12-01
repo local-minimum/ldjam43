@@ -19,7 +19,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4539832707880926}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: South
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -36,7 +36,7 @@ GameObject:
   - component: {fileID: 4286321234866026}
   - component: {fileID: 33121957333295566}
   - component: {fileID: 23791863014780338}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: track_switch_marker_straight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -51,7 +51,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4062500009070712}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: North
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -68,7 +68,7 @@ GameObject:
   - component: {fileID: 4193813039651912}
   - component: {fileID: 33286071676218744}
   - component: {fileID: 23052797380825418}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: track_switch_marker_curve
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -83,7 +83,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4287762522345338}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: West
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -100,7 +100,7 @@ GameObject:
   - component: {fileID: 4120741392673012}
   - component: {fileID: 33733619715550426}
   - component: {fileID: 23376619420966448}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: track_curve
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -118,7 +118,7 @@ GameObject:
   - component: {fileID: 114603509141780734}
   - component: {fileID: 65706442605788488}
   - component: {fileID: 114711289149371582}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: RailSwitchWE_NE
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -135,7 +135,7 @@ GameObject:
   - component: {fileID: 4058883622478694}
   - component: {fileID: 33098761989511610}
   - component: {fileID: 23738466156412772}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: track_straight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -150,7 +150,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4059805912638384}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: East
   m_TagString: Untagged
   m_Icon: {fileID: 0}

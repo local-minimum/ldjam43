@@ -655,7 +655,7 @@ public class Person : MonoBehaviour {
     {
         age = Random.Range(1, 99);
         goalPosition = FindObjectOfType<World>().GetRandomPosition();
-        personName = firstNames[Random.Range(0, firstNames.Length-1)] + " " +lastNames[Random.Range(0, lastNames.Length - 1)];
+        personName = string.Format("{0} {1}", firstNames[Random.Range(0, firstNames.Length-1)], lastNames[Random.Range(0, lastNames.Length - 1)]);
         interests = allInterests[Random.Range(0, allInterests.Length - 1)];
     }
 

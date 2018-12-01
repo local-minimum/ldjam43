@@ -1,0 +1,197 @@
+fileFormatVersion: 2
+guid: 71e4e8ffb9d5a314fb9a9509fed09829
+ModelImporter:
+  serializedVersion: 23
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: Bush_1
+    100004: Bush_2
+    100006: Cross_section
+    100008: Engine
+    100010: Person_1
+    100012: Person_2
+    100014: Person_3
+    100016: Plane
+    100018: Station
+    100020: Track_right_turn
+    100022: Track_right_turn_curve
+    100024: track_signal_closed
+    100026: track_signal_open
+    100028: Track_straight
+    100030: Track_straight_curve
+    100032: track_switch_right
+    100034: track_switch_straight
+    100036: Tree_1
+    100038: Tree_2
+    400000: //RootNode
+    400002: Bush_1
+    400004: Bush_2
+    400006: Cross_section
+    400008: Engine
+    400010: Person_1
+    400012: Person_2
+    400014: Person_3
+    400016: Plane
+    400018: Station
+    400020: Track_right_turn
+    400022: Track_right_turn_curve
+    400024: track_signal_closed
+    400026: track_signal_open
+    400028: Track_straight
+    400030: Track_straight_curve
+    400032: track_switch_right
+    400034: track_switch_straight
+    400036: Tree_1
+    400038: Tree_2
+    2100000: Beige
+    2100002: Gray
+    2100004: Red
+    2100006: Dark_gray
+    2100008: Green_light
+    2100010: Red_light
+    2100012: unnamed
+    2100014: Green
+    2100016: Brown
+    2100018: Blue
+    2300000: Bush_1
+    2300002: Bush_2
+    2300004: Cross_section
+    2300006: Engine
+    2300008: Person_1
+    2300010: Person_2
+    2300012: Person_3
+    2300014: Plane
+    2300016: Station
+    2300018: Track_right_turn
+    2300020: Track_right_turn_curve
+    2300022: track_signal_closed
+    2300024: track_signal_open
+    2300026: Track_straight
+    2300028: Track_straight_curve
+    2300030: track_switch_right
+    2300032: track_switch_straight
+    2300034: Tree_1
+    2300036: Tree_2
+    3300000: Bush_1
+    3300002: Bush_2
+    3300004: Cross_section
+    3300006: Engine
+    3300008: Person_1
+    3300010: Person_2
+    3300012: Person_3
+    3300014: Plane
+    3300016: Station
+    3300018: Track_right_turn
+    3300020: Track_right_turn_curve
+    3300022: track_signal_closed
+    3300024: track_signal_open
+    3300026: Track_straight
+    3300028: Track_straight_curve
+    3300030: track_switch_right
+    3300032: track_switch_straight
+    3300034: Tree_1
+    3300036: Tree_2
+    4300000: Station
+    4300002: track_switch_right
+    4300004: track_switch_straight
+    4300006: track_signal_closed
+    4300008: track_signal_open
+    4300010: Track_straight
+    4300012: Plane
+    4300014: Cross_section
+    4300016: Track_straight_curve
+    4300018: Track_right_turn_curve
+    4300020: Track_right_turn
+    4300022: Bush_2
+    4300024: Bush_1
+    4300026: Tree_2
+    4300028: Tree_1
+    4300030: Person_3
+    4300032: Person_2
+    4300034: Person_1
+    4300036: Engine
+    7400000: Default Take
+    9500000: //RootNode
+    2186277476908879412: ImportLogs
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    previousCalculatedGlobalScale: 1
+    hasPreviousCalculatedGlobalScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

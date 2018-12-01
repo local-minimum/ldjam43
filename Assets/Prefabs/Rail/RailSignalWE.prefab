@@ -19,7 +19,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4536976962330704}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: North
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -36,7 +36,7 @@ GameObject:
   - component: {fileID: 4088614378171166}
   - component: {fileID: 33165365638140178}
   - component: {fileID: 23235140739960720}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: track signal
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -51,7 +51,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4945192997932568}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: South
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -66,7 +66,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4756797393497316}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: track_signal_closed
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -81,7 +81,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4899501160047932}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: track_signal_open
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -99,7 +99,7 @@ GameObject:
   - component: {fileID: 114771949178504674}
   - component: {fileID: 65574517695301780}
   - component: {fileID: 114173547977042222}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: RailSignalWE
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -114,7 +114,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4428332532505486}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: East
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -131,7 +131,7 @@ GameObject:
   - component: {fileID: 4088479402758018}
   - component: {fileID: 33449863871449648}
   - component: {fileID: 23402008425658606}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: track signal
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -148,7 +148,7 @@ GameObject:
   - component: {fileID: 4745703601480162}
   - component: {fileID: 33390877402278960}
   - component: {fileID: 23863999827651312}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Track straig
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -163,7 +163,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4240764108679016}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: West
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -180,7 +180,7 @@ GameObject:
   - component: {fileID: 4614070012139716}
   - component: {fileID: 33512489414345088}
   - component: {fileID: 23272065088626312}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Track straig
   m_TagString: Untagged
   m_Icon: {fileID: 0}
