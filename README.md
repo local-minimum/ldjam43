@@ -10,3 +10,4 @@
 * Working life career game, start as new employee, to advance you have to sacrifice more and more of health, personality, values, social life/family etc. 
 * Sacrifice parts of your body
 * Sacrifice a skill at a time and still manage to make it to the goal.
+* God trying to make your people stop sacrificing things and people but they really want to do it!
