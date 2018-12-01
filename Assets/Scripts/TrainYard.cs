@@ -12,19 +12,28 @@ public class TrainYard : MonoBehaviour {
     [SerializeField]
     RailTrack track;
 
-    bool building = false;
+    [SerializeField]
+    float[] betweenTrains;
+
+    int trainsBuilt = 0;
+
+    float leaveYardTime = 2f;
 
 	void Start () {
-        StartCoroutine(MakeTrain());
+        StartCoroutine(MakeTrains());
 	}
 	
-    IEnumerator<WaitForSeconds> MakeTrain()
-    {
-        building = true;
-        Train train = Instantiate(prefab);
-        train.SetRailAndTrack(yard, track);
-        yield return new WaitForSeconds(3f);
-        train.SetBuilt();
-        building = false;
+    IEnumerator<WaitForSeconds> MakeTrains()
+    {        
+        while (true)
+        {
+            Train train = Instantiate(prefab);
+            train.SetRailAndTrack(yard, track);
+            yield return new WaitForSeconds(betweenTrains[Mathf.Min(betweenTrains.Length - 1, trainsBuilt)]);
+            train.SetBuilt();
+            trainsBuilt += 1;
+            yield return new WaitForSeconds(leaveYardTime);
+        }
+
     }
 }

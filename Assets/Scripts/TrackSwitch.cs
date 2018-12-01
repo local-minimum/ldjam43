@@ -14,7 +14,7 @@ public class TrackSwitch : MonoBehaviour {
     {
         int mode = 0;
         rail = GetComponent<Rail>();
-        for (int i=0, l=Random.RandomRange(1, 2); i<l; i++)
+        for (int i=0, l=Random.Range(1, 2); i<l; i++)
         {
             mode = rail.Switch();
         }

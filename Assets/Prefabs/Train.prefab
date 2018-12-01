@@ -216,8 +216,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 872dc2731a187304abf48368df5ed308, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rail: {fileID: 0}
-  track: 8
   speed: 1
 --- !u!136 &136140223082830442
 CapsuleCollider:
@@ -227,7 +225,7 @@ CapsuleCollider:
   m_GameObject: {fileID: 1389912192410982}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   m_Radius: 0.29
   m_Height: 1.39
   m_Direction: 2

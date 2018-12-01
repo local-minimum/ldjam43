@@ -2205,6 +2205,15 @@ MonoBehaviour:
   prefab: {fileID: 114792431244110410, guid: 58a4ed55807190c4f84d9329ccd22596, type: 2}
   yard: {fileID: 1570536295}
   track: 3
+  betweenTrains:
+  - 3
+  - 30
+  - 60
+  - 50
+  - 40
+  - 30
+  - 20
+  - 10
 --- !u!1001 &2050300429
 Prefab:
   m_ObjectHideFlags: 0
