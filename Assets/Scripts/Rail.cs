@@ -2,8 +2,25 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum RailConnector
+{
+    A1, A2a,
+};
+
 public class Rail : MonoBehaviour {
 
+    [SerializeField]
+    Transform exitA1;
+    [SerializeField]
+    Transform exitA2a;
+    /*
+    [SerializeField]
+    Transform exitA2b;
+    [SerializeField]
+    Transform exitB1;
+    [SerializeField]
+    Transform exitB2;
+    */
 	void Start () {
 		
 	}
@@ -24,7 +41,43 @@ public class Rail : MonoBehaviour {
     {
         get
         {
-            return Mathf.RoundToInt(transform.position.y);
+            return Mathf.RoundToInt(transform.position.z);
         }
+    }
+
+    Transform GetSourceConnector(RailConnector connector)
+    {
+        if (connector == RailConnector.A1)
+        {
+            return exitA1;
+        }
+        else if (connector == RailConnector.A2a)
+        {
+            return exitA2a;
+        }
+        throw new System.ArgumentException();
+    }
+
+    Transform GetTargetConnector(RailConnector connector)
+    {
+        if (connector == RailConnector.A1)
+        {
+            return exitA2a;
+        } else if ( connector == RailConnector.A2a)
+        {
+            return exitA1;
+        }
+        throw new System.ArgumentException();
+    }
+
+    public Vector3 GetPosition(RailConnector sourceConnector, float distance, out float overshoot)
+    {
+        Transform source = GetSourceConnector(sourceConnector);
+        Transform target = GetTargetConnector(sourceConnector);
+        float length = Vector3.Distance(target.position, source.position);
+        float progress = distance / length;
+        overshoot = Mathf.Max(0, length - distance);
+        return Vector3.Lerp(source.position, target.position, progress);
+        
     }
 }
