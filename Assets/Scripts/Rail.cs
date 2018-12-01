@@ -37,6 +37,20 @@ public class Rail : MonoBehaviour {
     [SerializeField]
     Transform east;
 
+    [SerializeField]
+    RailTrack[] westTracks;
+
+    [SerializeField]
+    RailTrack[] eastTracks;
+
+    [SerializeField]
+    RailTrack[] northTracks;
+
+    [SerializeField]
+    RailTrack[] southTracks;
+
+    int trackSwitch = 0;
+
     public int X
     {
         get
@@ -212,16 +226,27 @@ public class Rail : MonoBehaviour {
         float proximityThreshold = 0.05f;
         if (Vector3.Distance(position, south.position) < proximityThreshold)
         {
-            return RailTrack.SouthNorth;
+            if (southTracks.Length > trackSwitch)
+            {
+                return southTracks[trackSwitch];
+            }
         } else if (Vector3.Distance(position, north.position) < proximityThreshold)
         {
-            return RailTrack.NorthSouth;
+            if (northTracks.Length > trackSwitch) {
+                return northTracks[trackSwitch];
+            }
         } else if (Vector3.Distance(position, west.position) < proximityThreshold)
         {
-            return RailTrack.WestEast;
+            if (westTracks.Length > trackSwitch)
+            {
+                return westTracks[trackSwitch];
+            }
         } else if (Vector3.Distance(position, east.position) < proximityThreshold)
         {
-            return RailTrack.EastWest;
+            if (eastTracks.Length > trackSwitch)
+            {
+                return eastTracks[trackSwitch];
+            }
         }
         throw new System.ArgumentException();
     }
