@@ -14,3 +14,6 @@
 * Cooking game. Make cool deamons or something by combining the right recipes.
 * Trolley problem-game
 * At the altar you have options of what you can give up (color vision, get bad sight, jumping, going backwards, your soul(faster loss of life)). But you need to make sacrifices to replentish your life-force.
+* Temple/religion career game, make more and more sacrifices (your own or others) to progress. Unclear if progressing is actually good for you.
+* Procedural branching options game trying to guide people/group as a deity, where they constantly make poor decisions and blame you or try to sacrifice important things to you.
+* Reverse climate change game. Trend in game society is for more sustainable society, player needs to actively counter this trend to protect consumption-based economy! (sacrificing future generations, bio diversity etc in the process).
