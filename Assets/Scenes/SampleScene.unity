@@ -618,15 +618,15 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 8f63fd53232781347b867b1801f7d59d, type: 3}
       propertyPath: m_LocalScale.z
-      value: -0.4
+      value: -0.6
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 8f63fd53232781347b867b1801f7d59d, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.4
+      value: 0.6
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 8f63fd53232781347b867b1801f7d59d, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.4
+      value: 0.6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8f63fd53232781347b867b1801f7d59d, type: 3}
@@ -894,7 +894,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 975405138}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.509, y: -0.439, z: 0.001}
+  m_LocalPosition: {x: 2.509, y: 0.14, z: 0.001}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1197189664}
@@ -1475,6 +1475,34 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4327399770048418, guid: a85480cdf60265a4390c374e93ee6368,
     type: 2}
   m_PrefabInternal: {fileID: 1947338134}
+--- !u!1 &1636376802 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1884737789549710, guid: a85480cdf60265a4390c374e93ee6368,
+    type: 2}
+  m_PrefabInternal: {fileID: 61000438}
+--- !u!65 &1636376803
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1636376802}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 0.3, z: 1}
+  m_Center: {x: 0, y: 0.35, z: 0}
+--- !u!114 &1636376804
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1636376802}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f33601ee17ea7eb4fbed9cade71139f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &1636376807 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4327399770048418, guid: a85480cdf60265a4390c374e93ee6368,
@@ -1696,7 +1724,7 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 2100000, guid: 714c18426af9eca4495cf4c4655926c1, type: 2}
+  - {fileID: 2100000, guid: 52de63f6e1289614f83f7f93216eb376, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

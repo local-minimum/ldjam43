@@ -50,6 +50,19 @@ public class Rail : MonoBehaviour {
     RailTrack[] southTracks;
 
     int trackSwitch = 0;
+    private TrackSignal signal;
+
+    private void Start()
+    {
+        signal = GetComponent<TrackSignal>();
+    }
+    public TrackSignal Signal
+    {
+        get
+        {
+            return signal;
+        }
+    }
 
     public int X
     {

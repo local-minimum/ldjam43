@@ -5,7 +5,6 @@ using UnityEngine;
 public class Train : MonoBehaviour {
 
     RailHandler handler;
-
     [SerializeField]
     Rail rail;
 
@@ -17,6 +16,8 @@ public class Train : MonoBehaviour {
     [SerializeField]
     float speed = 0.1f;
 
+    bool stopped = false;
+
     private void Start()
     {
         handler = FindObjectOfType<RailHandler>();
@@ -26,6 +27,10 @@ public class Train : MonoBehaviour {
         {
             Debug.LogWarning("End of Line");
             return;
+        } else if (stopped)
+        {
+            stopped = rail.Signal.Stopping;
+            if (stopped) return;
         }
         localDistance += Time.deltaTime * speed;
         float overshoot;
@@ -37,6 +42,7 @@ public class Train : MonoBehaviour {
             rail = handler.FindRailAtCoordinates(pos);
             localDistance = overshoot;
             if (!rail) break;
+            stopped = rail.Signal && rail.Signal.Stopping;
             track = rail.GetActiveTrack(position);
             position = rail.GetPosition(track, localDistance, out overshoot);
             rotation = rail.GetRotaion(track, localDistance);
