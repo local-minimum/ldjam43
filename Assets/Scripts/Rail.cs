@@ -275,4 +275,9 @@ public class Rail : MonoBehaviour {
                 throw new System.ArgumentException();
         }
     }
+
+    public void Switch()
+    {
+        trackSwitch = (trackSwitch + 1) % 2;
+    }
 }
