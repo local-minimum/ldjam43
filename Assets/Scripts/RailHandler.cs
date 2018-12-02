@@ -1,8 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
-public delegate void TrainCrash(Train train1, Train train2);
 public delegate void Fatality(Train train, Person person);
 public delegate void AccountTransaction(int value, Transform localization);
 public delegate void PopularityGain(int value, Transform localization);
@@ -13,7 +13,6 @@ public class RailHandler : MonoBehaviour {
     [SerializeField]
     float costFrequency = 1;
 
-    public event TrainCrash OnTrainCrash;
     public event Fatality OnFatality;
     public event AccountTransaction OnTransaction;
     public event PopularityGain OnPopularityGain;
@@ -51,11 +50,7 @@ public class RailHandler : MonoBehaviour {
 
     public void ReportTrainCollision(Train train1, Train train2)
     {
-        if (!hasHadCrash)
-        {
-            hasHadCrash = true;
-            if (OnTrainCrash != null) OnTrainCrash(train1, train2);
-        }
+        SceneManager.LoadScene("EndingCollision");
     }
 
     float lastKill;

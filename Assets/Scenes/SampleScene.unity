@@ -4612,7 +4612,7 @@ MonoBehaviour:
   cash: {fileID: 1592677261}
   balance: 200
   popularityLvl: 100
-  costOfKilling: 100
+  costOfKilling: 5
 --- !u!4 &2040312467
 Transform:
   m_ObjectHideFlags: 0

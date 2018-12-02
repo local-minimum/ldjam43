@@ -74,8 +74,13 @@ public class Wallet : MonoBehaviour {
     }
 
     private void Rails_OnTransaction(int value, Transform localization)
-    { 
-        balance = Mathf.Clamp(value + balance, 0, 100);
-        cash.SetValue(balance);        
+    {
+        if (balance > 0)
+        {
+            balance = Mathf.Clamp(value + balance, 0, 100);
+            cash.SetValue(balance);
+            if (balance == 0) StartCoroutine(DelayLoadScene("EndingOutOfCash"));
+        }
+
     }
 }
