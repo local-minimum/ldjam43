@@ -33,9 +33,9 @@ public class Wallet : MonoBehaviour {
         text.text = string.Format("€ {0}", balance);
     }
 
-    private void Rails_OnTransaction(int vaule, Transform localization)
-    {
-        balance += vaule;
+    private void Rails_OnTransaction(int value, Transform localization)
+    { 
+        balance += value;
         text.text = string.Format("€ {0}", balance);
     }
 }

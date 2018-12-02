@@ -4,7 +4,7 @@ using UnityEngine;
 
 public delegate void TrainCrash(Train train1, Train train2);
 public delegate void Fatality(Train train, Person person);
-public delegate void AccountTransaction(int vaule, Transform localization);
+public delegate void AccountTransaction(int value, Transform localization);
 
 public class RailHandler : MonoBehaviour {
     [SerializeField]
