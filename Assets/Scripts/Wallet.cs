@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class Wallet : MonoBehaviour {
 
@@ -49,16 +50,28 @@ public class Wallet : MonoBehaviour {
 
     private void Rails_OnPopularityGain(int value, Transform localization)
     {
-        popularityLvl = Mathf.Min(100, popularityLvl + value);
-        popularity.SetValue(popularityLvl);
+        if (popularityLvl > 0)
+        {
+            popularityLvl = Mathf.Min(100, popularityLvl + value);
+            popularity.SetValue(popularityLvl);
+        }
     }
 
     private void Rails_OnFatality(Train train, Person person)
     {
         popularityLvl = Mathf.Max(0, popularityLvl - costOfKilling);
         popularity.SetValue(popularityLvl);
+        if (popularityLvl == 0)
+        {
+            StartCoroutine(DelayLoadScene("EndingAngryMob"));
+        }
     }
 
+    IEnumerator<WaitForSeconds> DelayLoadScene(string scene)
+    {        
+        yield return new WaitForSeconds(2f);
+        SceneManager.LoadScene(scene);
+    }
 
     private void Rails_OnTransaction(int value, Transform localization)
     { 
