@@ -18,6 +18,12 @@ public class Person : MonoBehaviour {
     [SerializeField]
     private Vector2 goalPosition;
 
+    private System.Action<Person> killCallback;
+    public void SetKillCallback(System.Action<Person> callback)
+    {
+        killCallback = callback;
+    }
+
     private static readonly string[] firstNames = new string[]
     {
         "Maria",
@@ -653,10 +659,8 @@ public class Person : MonoBehaviour {
     // Use this for initialization
     void Start()
     {
-        age = Random.Range(1, 99);
         goalPosition = FindObjectOfType<World>().GetRandomPosition();
-        personName = string.Format("{0} {1}", firstNames[Random.Range(0, firstNames.Length-1)], lastNames[Random.Range(0, lastNames.Length - 1)]);
-        interests = allInterests[Random.Range(0, allInterests.Length - 1)];
+        Recycle();
     }
 
     // Update is called once per frame
@@ -719,7 +723,8 @@ public class Person : MonoBehaviour {
     IEnumerator<WaitForSeconds> _Kill()
     {
         yield return new WaitForSeconds(2f);
-        Destroy(gameObject);
+        if (killCallback != null) killCallback(this);
+        gameObject.SetActive(false);
     }
 
     string[] messages = new string[] {
@@ -734,5 +739,19 @@ public class Person : MonoBehaviour {
         {
             return string.Format(messages[Random.Range(0, messages.Length - 1)], personName, interests, age);
         }
+    }
+    
+    public void Recycle()
+    {
+        alive = true;
+        age = Random.Range(1, 99);
+        personName = string.Format("{0} {1}", firstNames[Random.Range(0, firstNames.Length - 1)], lastNames[Random.Range(0, lastNames.Length - 1)]);
+        interests = allInterests[Random.Range(0, allInterests.Length - 1)];
+        gameObject.SetActive(true);
+    }
+
+    public void SetWalkingPath(WalkPath path)
+    {
+
     }
 }
