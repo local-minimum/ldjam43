@@ -31,17 +31,26 @@ public class Wallet : MonoBehaviour {
     {
         rails.OnTransaction += Rails_OnTransaction;
         rails.OnFatality += Rails_OnFatality;
+        rails.OnPopularityGain += Rails_OnPopularityGain;
     }
+
     private void OnDisable()
     {
         rails.OnTransaction -= Rails_OnTransaction;
         rails.OnFatality -= Rails_OnFatality;
+        rails.OnPopularityGain -= Rails_OnPopularityGain;
     }
 
     private void Start()
     {
         popularity.SetValue(popularityLvl);
         cash.SetValue(balance);
+    }
+
+    private void Rails_OnPopularityGain(int value, Transform localization)
+    {
+        popularityLvl = Mathf.Min(100, popularityLvl + value);
+        popularity.SetValue(popularityLvl);
     }
 
     private void Rails_OnFatality(Train train, Person person)

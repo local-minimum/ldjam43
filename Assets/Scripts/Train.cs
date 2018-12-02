@@ -20,6 +20,9 @@ public class Train : MonoBehaviour {
     float incomeFrequency = 1;
 
     [SerializeField]
+    int maxCash = 12;
+
+    [SerializeField]
     float trainElevation = .05f;
 
     bool stopped = false;
@@ -112,7 +115,7 @@ public class Train : MonoBehaviour {
         if (isDangerous && collision.collider.tag == "People")
         {
             ContactPoint contact = collision.contacts[0];
-            Person person = collision.collider.GetComponent<Person>();
+            Person person = collision.collider.GetComponentInParent<Person>();
             if (person.IsAlive)
             {
                 person.Kill(contact.point + Vector3.up * 0.4f, contact.normal * -70);
@@ -131,7 +134,7 @@ public class Train : MonoBehaviour {
     {
         if (other.tag == "Station")
         {
-            handler.ArriveAtStation(cash, other.transform);
+            handler.ArriveAtStation(Mathf.Min(cash, maxCash), other.transform);
             cash = 0;
         }
     }

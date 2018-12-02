@@ -3,15 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class StationCanvas : MonoBehaviour {
+public class StationPopularityCanvas : MonoBehaviour {
+
+    RailHandler handler;
 
     [SerializeField]
     Text text;
 
     [SerializeField]
     GameObject panel;
-
-    RailHandler handler;
 
     private void Awake()
     {
@@ -20,20 +20,20 @@ public class StationCanvas : MonoBehaviour {
 
     private void OnEnable()
     {
-        handler.OnTransaction += Handler_OnTransaction;
+        handler.OnPopularityGain += Handler_OnPopularityGain;
     }
 
     private void OnDisable()
     {
-        handler.OnTransaction -= Handler_OnTransaction;
+        handler.OnPopularityGain -= Handler_OnPopularityGain;
     }
 
-    private void Handler_OnTransaction(int value, Transform localization)
+    private void Handler_OnPopularityGain(int value, Transform localization)
     {
         if (localization == transform.parent)
-        {            
-            ShowMe(value);
-        }        
+        {
+            if (value > 0) ShowMe(value);
+        }
     }
 
     public void ShowMe(int income)

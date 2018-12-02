@@ -218,7 +218,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 1
   incomeWhenRunning: 3
-  incomeFrequency: 1
+  incomeFrequency: 5
   trainElevation: 0.45
 --- !u!136 &136140223082830442
 CapsuleCollider:

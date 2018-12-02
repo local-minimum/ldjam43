@@ -702,7 +702,7 @@ public class Person : MonoBehaviour {
     public void Kill(Vector3 forcePosition, Vector3 forceVector)
     {
         alive = false;
-        Rigidbody rb = GetComponent<Rigidbody>();
+        Rigidbody rb = GetComponentInChildren<Rigidbody>();
         rb.constraints = RigidbodyConstraints.None;
         rb.AddForceAtPosition(forceVector, forcePosition);
         StartCoroutine(_Kill());

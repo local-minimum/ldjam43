@@ -5,6 +5,7 @@ using UnityEngine;
 public delegate void TrainCrash(Train train1, Train train2);
 public delegate void Fatality(Train train, Person person);
 public delegate void AccountTransaction(int value, Transform localization);
+public delegate void PopularityGain(int value, Transform localization);
 
 public class RailHandler : MonoBehaviour {
     [SerializeField]
@@ -15,6 +16,7 @@ public class RailHandler : MonoBehaviour {
     public event TrainCrash OnTrainCrash;
     public event Fatality OnFatality;
     public event AccountTransaction OnTransaction;
+    public event PopularityGain OnPopularityGain;
 
     Rail[] rails;
     bool hasHadCrash;
@@ -23,7 +25,11 @@ public class RailHandler : MonoBehaviour {
 	void Start () {
         rails = FindObjectsOfType<Rail>();
         StartCoroutine(DoCost());
+        lastKill = Time.timeSinceLevelLoad;
     }
+
+    [SerializeField]
+    float[] timesWithoutDeathToPopularity;
 
     public Rail FindRailAtCoordinates(RailPos pos)
     {
@@ -52,8 +58,11 @@ public class RailHandler : MonoBehaviour {
         }
     }
 
+    float lastKill;
+
     public void ReportFatality(Train train, Person person)
     {
+        lastKill = Time.timeSinceLevelLoad;
         if (OnFatality != null) OnFatality(train, person);
     }
 
@@ -71,8 +80,20 @@ public class RailHandler : MonoBehaviour {
         }
     }
 
+    int GetPopularityGain()
+    {
+        float noKillTime = Time.timeSinceLevelLoad - lastKill;
+        for (int i=0; i<timesWithoutDeathToPopularity.Length; i++)
+        {
+            if (noKillTime < timesWithoutDeathToPopularity[i])
+                return i;
+        }
+        return timesWithoutDeathToPopularity.Length;
+    }
+
     public void ArriveAtStation(int income, Transform station)
     {
         if (OnTransaction != null) OnTransaction(income, station);
+        if (OnPopularityGain != null) OnPopularityGain(GetPopularityGain(), station);
     }
 }
