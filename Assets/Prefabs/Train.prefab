@@ -217,6 +217,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 1
+  incomeWhenRunning: 3
+  incomeFrequency: 1
 --- !u!136 &136140223082830442
 CapsuleCollider:
   m_ObjectHideFlags: 1
