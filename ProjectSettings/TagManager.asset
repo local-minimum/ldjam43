@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Train
   - People
+  - Station
   layers:
   - Default
   - TransparentFX
@@ -20,7 +21,7 @@ TagManager:
   - People
   - Ground
   - Tracks
-  - 
+  - Triggers
   - 
   - 
   - 

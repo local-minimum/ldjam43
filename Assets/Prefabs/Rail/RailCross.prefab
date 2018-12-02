@@ -19,7 +19,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4760487259274900}
-  - component: {fileID: 65946796115856842}
   - component: {fileID: 114952497624378730}
   m_Layer: 12
   m_Name: RailCross
@@ -305,18 +304,6 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1976791335846512}
   m_Mesh: {fileID: 4300000, guid: 8d6751f8393823649812cd1957c6101e, type: 3}
---- !u!65 &65946796115856842
-BoxCollider:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1434488594309950}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &114952497624378730
 MonoBehaviour:
   m_ObjectHideFlags: 1

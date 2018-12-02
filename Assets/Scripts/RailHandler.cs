@@ -4,11 +4,11 @@ using UnityEngine;
 
 public delegate void TrainCrash(Train train1, Train train2);
 public delegate void Fatality(Train train, Person person);
-public delegate void AccountTransaction(int vaule);
+public delegate void AccountTransaction(int vaule, Transform localization);
 
 public class RailHandler : MonoBehaviour {
     [SerializeField]
-    int costForTrainsOnRail = 2;
+    int costForTrainsOnRail = -2;
     [SerializeField]
     float costFrequency = 1;
 
@@ -66,8 +66,13 @@ public class RailHandler : MonoBehaviour {
     {
         while (true)
         {
-            if (OnTransaction != null) OnTransaction(trains.Count * costForTrainsOnRail);
+            if (OnTransaction != null) OnTransaction(trains.Count * costForTrainsOnRail, null);
             yield return new WaitForSeconds(costFrequency);
         }
+    }
+
+    public void ArriveAtStation(int income, Transform station)
+    {
+        if (OnTransaction != null) OnTransaction(income, station);
     }
 }

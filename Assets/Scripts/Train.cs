@@ -13,6 +13,12 @@ public class Train : MonoBehaviour {
     [SerializeField]
     float speed = 0.1f;
 
+    [SerializeField]
+    int incomeWhenRunning = 2;
+    int cash;
+    [SerializeField]
+    float incomeFrequency = 1;
+
     bool stopped = false;
     bool underConstruction = true;
 
@@ -35,19 +41,39 @@ public class Train : MonoBehaviour {
     {
         underConstruction = false;
         handler.ReportNewTrainOnTrack(this);
+        StartCoroutine(DoIncome());
+    }
+
+    bool isIncoming = false;
+    IEnumerator<WaitForSeconds> DoIncome()
+    {
+        if (!isIncoming)
+        {
+            isIncoming = true;
+            while (!stopped)
+            {
+                isIncoming = true;
+                cash += incomeWhenRunning;
+                yield return new WaitForSeconds(incomeFrequency);
+            }
+            isIncoming = false;
+        }
     }
 
     void Update () {
         if (underConstruction) return;
-        if (!rail)
+        if (stopped)
+        {
+            stopped = !rail || rail.Signal.Stopping;
+            if (stopped) return;
+            StartCoroutine(DoIncome());
+        } else if (!rail)
         {
             Debug.LogWarning("End of Line");
+            stopped = true;
             return;
-        } else if (stopped)
-        {
-            stopped = rail.Signal.Stopping;
-            if (stopped) return;
         }
+
         localDistance += Time.deltaTime * speed;
         float overshoot;
         Vector3 position = rail.GetPosition(track, localDistance, out overshoot);
@@ -78,7 +104,6 @@ public class Train : MonoBehaviour {
 
     private void OnCollisionEnter(Collision collision)
     {
-        Debug.Log(collision.gameObject.name);
         if (isDangerous && collision.collider.tag == "People")
         {
             ContactPoint contact = collision.contacts[0];
@@ -92,5 +117,14 @@ public class Train : MonoBehaviour {
         {
             handler.ReportTrainCollision(this, collision.collider.GetComponent<Train>());
         } 
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.tag == "Station")
+        {
+            handler.ArriveAtStation(cash, other.transform);
+            cash = 0;
+        }
     }
 }
