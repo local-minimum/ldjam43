@@ -1,40 +1,27 @@
 fileFormatVersion: 2
-guid: 76adb936e860a9c40b2bf8aa923f291d
+guid: b3b0bfbc92d711b43be4753f7eec2300
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
-    100000: Cross sectio
-    100002: Engine
-    100004: Plane
-    100006: Station larg
-    100008: //RootNode
-    100010: Track straig
-    400000: Cross sectio
-    400002: Engine
-    400004: Plane
-    400006: Station larg
-    400008: //RootNode
-    400010: Track straig
-    2100000: Dark gray
-    2100002: Red
-    2100004: Gray
-    2100006: Beige
-    2300000: Cross sectio
-    2300002: Engine
+    100000: //RootNode
+    100002: Boxes
+    100004: Bush 2
+    100006: Plane
+    400000: //RootNode
+    400002: Boxes
+    400004: Bush 2
+    400006: Plane
+    2100000: Brown
+    2100002: Green
+    2300000: Boxes
+    2300002: Bush 2
     2300004: Plane
-    2300006: Station larg
-    2300008: Track straig
-    3300000: Cross sectio
-    3300002: Engine
+    3300000: Boxes
+    3300002: Bush 2
     3300004: Plane
-    3300006: Station larg
-    3300008: Track straig
-    4300000: Station larg
-    4300002: Track straig
-    4300004: Plane
-    4300006: Cross sectio
-    4300008: Engine
-    2186277476908879412: ImportLogs
+    4300000: Boxes
+    4300002: Plane
+    4300004: Bush 2
   externalObjects: {}
   materials:
     importMaterials: 1

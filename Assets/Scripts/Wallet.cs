@@ -8,10 +8,19 @@ public class Wallet : MonoBehaviour {
     RailHandler rails;
 
     [SerializeField]
-    Text text;
+    WalletMeter popularity;
 
     [SerializeField]
-    int balance = 200;
+    WalletMeter cash;
+
+    [SerializeField]
+    int balance = 80;
+
+    [SerializeField]
+    int popularityLvl = 100;
+
+    [SerializeField]
+    int costOfKilling = 5;
 
     private void Awake()
     {
@@ -21,21 +30,30 @@ public class Wallet : MonoBehaviour {
     private void OnEnable()
     {
         rails.OnTransaction += Rails_OnTransaction;
+        rails.OnFatality += Rails_OnFatality;
     }
-
     private void OnDisable()
     {
         rails.OnTransaction -= Rails_OnTransaction;
+        rails.OnFatality -= Rails_OnFatality;
     }
 
     private void Start()
     {
-        text.text = string.Format("€ {0}", balance);
+        popularity.SetValue(popularityLvl);
+        cash.SetValue(balance);
     }
+
+    private void Rails_OnFatality(Train train, Person person)
+    {
+        popularityLvl = Mathf.Max(0, popularityLvl - costOfKilling);
+        popularity.SetValue(popularityLvl);
+    }
+
 
     private void Rails_OnTransaction(int value, Transform localization)
     { 
-        balance += value;
-        text.text = string.Format("€ {0}", balance);
+        balance = Mathf.Clamp(value + balance, 0, 100);
+        cash.SetValue(balance);        
     }
 }
