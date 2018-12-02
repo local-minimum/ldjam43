@@ -708,10 +708,31 @@ public class Person : MonoBehaviour {
         StartCoroutine(_Kill());
     }
 
+    public bool IsAlive
+    {
+        get
+        {
+            return alive;
+        }
+    }
+
     IEnumerator<WaitForSeconds> _Kill()
     {
-        Debug.LogWarning(string.Format("{0} who loved {1} got run over by a train at age {2}", personName, interests, age));
         yield return new WaitForSeconds(2f);
         Destroy(gameObject);
+    }
+
+    string[] messages = new string[] {
+        "{0} (age {2}) got run over by a train.",
+        "In loving memory of {0}, who loved {1}.",
+        "Trains claimed another victim ({0}, age {2}).",
+    };
+
+    public string KillMessage
+    {
+        get
+        {
+            return string.Format(messages[Random.Range(0, messages.Length - 1)], personName, interests, age);
+        }
     }
 }

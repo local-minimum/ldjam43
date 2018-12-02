@@ -19,6 +19,9 @@ public class Train : MonoBehaviour {
     [SerializeField]
     float incomeFrequency = 1;
 
+    [SerializeField]
+    float trainElevation = .05f;
+
     bool stopped = false;
     bool underConstruction = true;
 
@@ -33,7 +36,9 @@ public class Train : MonoBehaviour {
         this.rail = rail;
         localDistance = 0;
         float overshoot;
-        transform.position = rail.GetPosition(track, 0, out overshoot);
+        Vector3 postion = rail.GetPosition(track, 0, out overshoot);
+        postion.y = trainElevation;
+        transform.position = postion;
         transform.rotation = rail.GetRotaion(track, 0);
     }
 
@@ -89,7 +94,7 @@ public class Train : MonoBehaviour {
             position = rail.GetPosition(track, localDistance, out overshoot);
             rotation = rail.GetRotaion(track, localDistance);
         }
-        position.y = transform.position.y;
+        position.y = trainElevation;
         transform.position = position;
         transform.rotation = rotation;
 	}
@@ -108,10 +113,13 @@ public class Train : MonoBehaviour {
         {
             ContactPoint contact = collision.contacts[0];
             Person person = collision.collider.GetComponent<Person>();
-            person.Kill(contact.point + Vector3.up * 0.4f, contact.normal * -70); 
+            if (person.IsAlive)
+            {
+                person.Kill(contact.point + Vector3.up * 0.4f, contact.normal * -70);
+                handler.ReportFatality(this, person);
+            }            
             GetComponent<Rigidbody>().velocity = Vector3.zero;
-            GetComponent<Rigidbody>().angularVelocity = Vector3.zero;
-            handler.ReportFatality(this, person);
+            GetComponent<Rigidbody>().angularVelocity = Vector3.zero;            
         }
         else if (collision.collider.tag == "Train")
         {
