@@ -34,6 +34,7 @@ public class Train : MonoBehaviour {
     public void SetBuilt()
     {
         underConstruction = false;
+        handler.ReportNewTrainOnTrack(this);
     }
 
     void Update () {
@@ -80,16 +81,16 @@ public class Train : MonoBehaviour {
         Debug.Log(collision.gameObject.name);
         if (isDangerous && collision.collider.tag == "People")
         {
-            var contact = collision.contacts[0];            
-            collision.collider.GetComponent<Person>().Kill(contact.point + Vector3.up * 0.4f, contact.normal * -70);            
+            ContactPoint contact = collision.contacts[0];
+            Person person = collision.collider.GetComponent<Person>();
+            person.Kill(contact.point + Vector3.up * 0.4f, contact.normal * -70); 
             GetComponent<Rigidbody>().velocity = Vector3.zero;
             GetComponent<Rigidbody>().angularVelocity = Vector3.zero;
-        } else if (collision.collider.tag == "Train")
-        {
-            Time.timeScale = 0f;
-            Debug.LogWarning("Trains collided, you loose!");
+            handler.ReportFatality(this, person);
         }
+        else if (collision.collider.tag == "Train")
+        {
+            handler.ReportTrainCollision(this, collision.collider.GetComponent<Train>());
+        } 
     }
-
-
 }
