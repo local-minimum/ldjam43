@@ -715,7 +715,7 @@ public class Person : MonoBehaviour {
         "In loving memory of {0}, who loved {1}.",
         "{0} (age {2}) will never do {1} again.",
         "{0} you died much too young at only {2}.",
-        "The trains stole {1} ({2}) from us much too soon."
+        "The trains stole {0} ({2}) from us much too soon."
     };
 
     public string KillMessage

@@ -61,7 +61,7 @@ public class CementaryCredits : MonoBehaviour {
 
         AddHeader("Credits");
         AddLine("LostMinds: Graphics");
-        AddLine("Local Minimum: Code");
+        AddLine("Local Minimum: Code, Voice");
         AddLine("Jonas: Code");
         AddLine("PicaPica & Hanna: Ideas");
         AddLine("");

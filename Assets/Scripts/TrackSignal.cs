@@ -14,6 +14,7 @@ public class TrackSignal : MonoBehaviour {
         stopping = Random.value < 0.5f;
         UpdateStopping();
     }
+
     private void OnMouseOver()
     {
         if (Input.GetMouseButtonDown(0))
