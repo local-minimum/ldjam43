@@ -14,13 +14,13 @@ public class PersonSpawner : MonoBehaviour {
             int oldies = recycledPeople.Count;
             if (oldies > 0)
             {
-                Person oldie = recycledPeople[Random.Range(0, oldies - 1)];
+                Person oldie = recycledPeople[Random.Range(0, oldies)];
                 recycledPeople.Remove(oldie);
                 oldie.Recycle();
                 return oldie;
             }
 
-            Person noob = Instantiate(prefabs[Random.Range(0, prefabs.Length - 1)]);
+            Person noob = Instantiate(prefabs[Random.Range(0, prefabs.Length)]);
             noob.SetKillCallback(HandleCorpse);
             return noob;
         }
@@ -30,6 +30,8 @@ public class PersonSpawner : MonoBehaviour {
         recycledPeople.Add(deader);
     }
 
+    [SerializeField]
+    Transform spawn;
     [SerializeField]
     WalkPath[] Paths;
     [SerializeField]
@@ -65,6 +67,7 @@ public class PersonSpawner : MonoBehaviour {
         while (true)
         {
             Person person = NextPerson;
+            person.SetPersonPosition(spawn.position);            
             person.SetWalkingPath(NextPath);
             yield return new WaitForSeconds(NextDelay);
         }

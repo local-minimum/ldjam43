@@ -6,17 +6,9 @@ public class Person : MonoBehaviour {
 
     private const float stepSize = 1f;
     
-    [SerializeField]
     private int age;
-
-    [SerializeField]
     private string personName;
-
-    [SerializeField]
     private string interests;
-
-    [SerializeField]
-    private Vector2 goalPosition;
 
     private System.Action<Person> killCallback;
     public void SetKillCallback(System.Action<Person> callback)
@@ -659,47 +651,37 @@ public class Person : MonoBehaviour {
     // Use this for initialization
     void Start()
     {
-        goalPosition = FindObjectOfType<World>().GetRandomPosition();
         Recycle();
     }
 
     // Update is called once per frame
     void Update () {
         if (!alive) return;
-        if (IsInGoalPosition)
+        if (OnTarget)
         {
-            goalPosition = FindObjectOfType<World>().GetRandomPosition();
+            if (!path) return;
+            pathTarget = path.GetTarget(pathTargetIdx);
+            pathTargetIdx++;
+            if (pathTarget == null)
+            {
+                if (killCallback != null) killCallback(this);
+                return;
+            }
         }
 
-        Vector3 movement = new Vector3(
-            (Mathf.RoundToInt(goalPosition.x) == X ? 0 : goalPosition.x < X ? -1: 1),
-            0,
-            (Mathf.RoundToInt(goalPosition.y) == Y ? 0 : goalPosition.y < Y ? -1 : 1)
-            ) * stepSize * Time.deltaTime;
+        Vector3 movement = (pathTarget.position - transform.position).normalized * stepSize * Time.deltaTime;
+        movement.y = 0f;        
         transform.Translate(movement);
     }
 
-    public bool IsInGoalPosition
+    [SerializeField]
+    float onTargetThreshold = 0.01f;
+    public bool OnTarget
     {
         get
         {
-            return Mathf.RoundToInt(goalPosition.x) == X && Mathf.RoundToInt(goalPosition.y) == Y;
-        }
-    }
-
-    public int X
-    {
-        get
-        {
-            return Mathf.RoundToInt(transform.position.x);
-        }
-    }
-
-    public int Y
-    {
-        get
-        {
-            return Mathf.RoundToInt(transform.position.y);
+            if (pathTarget == null) return true;
+            return Vector3.Distance(transform.position, pathTarget.position) < onTargetThreshold;
         }
     }
 
@@ -737,21 +719,34 @@ public class Person : MonoBehaviour {
     {
         get
         {
-            return string.Format(messages[Random.Range(0, messages.Length - 1)], personName, interests, age);
+            return string.Format(messages[Random.Range(0, messages.Length)], personName, interests, age);
         }
     }
     
     public void Recycle()
     {
         alive = true;
-        age = Random.Range(1, 99);
-        personName = string.Format("{0} {1}", firstNames[Random.Range(0, firstNames.Length - 1)], lastNames[Random.Range(0, lastNames.Length - 1)]);
-        interests = allInterests[Random.Range(0, allInterests.Length - 1)];
+        age = Random.Range(1, 100);
+        personName = string.Format("{0} {1}", firstNames[Random.Range(0, firstNames.Length)], lastNames[Random.Range(0, lastNames.Length)]);
+        interests = allInterests[Random.Range(0, allInterests.Length)].ToLower();
         gameObject.SetActive(true);
     }
 
+    WalkPath path;
+    int pathTargetIdx = 0;
+    Transform pathTarget;
+
     public void SetWalkingPath(WalkPath path)
     {
+        this.path = path;        
+        pathTargetIdx = 0;
+        pathTarget = null;
+    }
 
+    public void SetPersonPosition(Vector3 position)
+    {
+        Rigidbody rb = GetComponentInChildren<Rigidbody>();
+        Vector3 offset = transform.position - rb.transform.position;
+        transform.position = position + offset;
     }
 }
