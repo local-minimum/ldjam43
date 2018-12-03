@@ -217,9 +217,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 1.5
-  incomeWhenRunning: 3
+  incomeWhenRunning: 5
   incomeFrequency: 5
-  maxCash: 12
+  maxCash: 20
   trainElevation: 0.45
 --- !u!136 &136140223082830442
 CapsuleCollider:

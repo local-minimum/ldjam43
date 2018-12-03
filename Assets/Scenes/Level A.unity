@@ -2031,16 +2031,6 @@ Prefab:
       propertyPath: yard
       value: 
       objectReference: {fileID: 1266763031}
-    - target: {fileID: 114205610550376838, guid: ffa38edac90f1b54b8bdffe265f6d702,
-        type: 2}
-      propertyPath: betweenTrains.Array.data[1]
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 114205610550376838, guid: ffa38edac90f1b54b8bdffe265f6d702,
-        type: 2}
-      propertyPath: betweenTrains.Array.data[2]
-      value: 30
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ffa38edac90f1b54b8bdffe265f6d702, type: 2}
   m_IsPrefabAsset: 0

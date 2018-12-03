@@ -233,7 +233,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   text: {fileID: 114296048641685612}
-  costOfKilling: 5
+  costOfKilling: 10
 --- !u!114 &114120942972669558
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -54,8 +54,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 35141500b272a4b2eb294b0afc7a48f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  costForTrainsOnRail: -2
+  costForTrainsOnRail: -4
   costFrequency: 5
+  levelName: 
   timesWithoutDeathToPopularity:
   - 5
   - 10
@@ -76,8 +77,8 @@ MonoBehaviour:
   track: 3
   betweenTrains:
   - 3
+  - 10
   - 30
-  - 60
   - 50
   - 40
   - 30
@@ -96,9 +97,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   popularity: {fileID: 0}
   cash: {fileID: 0}
-  balance: 200
-  popularityLvl: 100
-  costOfKilling: 5
+  balance: 100
+  popularityLvl: 70
+  costOfKilling: 10
 --- !u!114 &114450496338669056
 MonoBehaviour:
   m_ObjectHideFlags: 1
