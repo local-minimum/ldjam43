@@ -248,11 +248,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e259aca736f234d25a7a61a3a50aecfd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  age: 0
-  personName: 
-  interests: 
-  goalPosition: {x: 0, y: 0}
-  onTargetThreshold: 0.01
 --- !u!114 &114146405351918248
 MonoBehaviour:
   m_ObjectHideFlags: 1
