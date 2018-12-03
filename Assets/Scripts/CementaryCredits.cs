@@ -17,6 +17,9 @@ public class CementaryCredits : MonoBehaviour {
     [SerializeField]
     Text reason;
 
+    [SerializeField]
+    Text records;
+
     bool scroll = false;
 
     private void Awake()
@@ -24,6 +27,13 @@ public class CementaryCredits : MonoBehaviour {
         anchorMin = scroller.anchorMin;
         anchorMax = scroller.anchorMax;
         reason.text = GameSession.GameOverReason;
+        ShowRecords();
+    }
+
+    void ShowRecords()
+    {
+        records.text = string.Format("Current: {0} h {1} min | Record {2} h {3} min", GameSession.TotalHours, GameSession.Minute, GameSession.RecordTotalHours, GameSession.RecordMinute);
+        GameSession.StoreNewRecord();
     }
 
     public void ShowCredits()

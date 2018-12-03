@@ -61,11 +61,52 @@ public class GameSession : MonoBehaviour {
             return Mathf.FloorToInt((duration / (60 * 24))) + 1;
         }
     }
+
     public static int Hour
     {
         get
         {
             return Mathf.FloorToInt(duration / 60 - (Day - 1) * 24);
+        }
+    }
+
+    public static int TotalHours
+    {
+        get
+        {
+            return Mathf.FloorToInt(duration / 60);
+        }
+    }
+
+    private static float RecordDuration
+    {
+        get
+        {
+            return PlayerPrefs.GetFloat(string.Format("{0}.Record", activeLevel), 0f);
+        }
+    }
+
+    public static int RecordTotalHours
+    {
+        get
+        {
+            return Mathf.FloorToInt(RecordDuration / 60);
+        }
+    }
+
+    public static int RecordMinute
+    {
+        get
+        {
+            return Mathf.RoundToInt(RecordDuration % 60);
+        }
+    }
+
+    public static void StoreNewRecord()
+    {
+        if (duration > RecordDuration)
+        {
+            PlayerPrefs.SetFloat(string.Format("{0}.Record", activeLevel), duration);
         }
     }
 }
