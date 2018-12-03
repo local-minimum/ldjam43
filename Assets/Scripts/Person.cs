@@ -671,7 +671,7 @@ public class Person : MonoBehaviour {
         }
         Vector3 offset = pathTarget.position - rb.transform.position;
         offset.y = 0;
-        rb.transform.LookAt(pathTarget, Vector3.up);
+        rb.transform.LookAt(rb.transform.position + offset, Vector3.up);
         rb.velocity = offset.normalized * velocity;
     }
     
