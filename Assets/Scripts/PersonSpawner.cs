@@ -22,6 +22,7 @@ public class PersonSpawner : MonoBehaviour {
 
             Person noob = Instantiate(prefabs[Random.Range(0, prefabs.Length)]);
             noob.SetKillCallback(HandleCorpse);
+            noob.Recycle();
             return noob;
         }
     }
