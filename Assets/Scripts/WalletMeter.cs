@@ -26,8 +26,8 @@ public class WalletMeter : MonoBehaviour {
         meter.anchorMax = new Vector2(meter.anchorMax.x, getAnchorMaxY(actualValue));
     }
 
-    float getAnchorMaxY(int value)
+    float getAnchorMaxY(float value)
     {
-        return yMin + (yMax - yMin) * (value / 100f);
+        return yMin + (value / 100f);
     }
 }
