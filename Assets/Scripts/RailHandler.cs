@@ -12,6 +12,8 @@ public class RailHandler : MonoBehaviour {
     int costForTrainsOnRail = -2;
     [SerializeField]
     float costFrequency = 1;
+    [SerializeField]
+    string levelName = "";
 
     public event Fatality OnFatality;
     public event AccountTransaction OnTransaction;
@@ -22,7 +24,7 @@ public class RailHandler : MonoBehaviour {
 
     List<Train> trains = new List<Train>();
 	void Start () {
-        GameSession.NewGame();
+        GameSession.NewGame(levelName);
         rails = FindObjectsOfType<Rail>();
         StartCoroutine(DoCost());
         lastKill = Time.timeSinceLevelLoad;
@@ -51,6 +53,7 @@ public class RailHandler : MonoBehaviour {
 
     public void ReportTrainCollision(Train train1, Train train2)
     {
+        GameSession.ReportLevelEndReaon("The Trains Collided!");
         SceneManager.LoadScene("EndingCollision");
     }
 

@@ -63,6 +63,7 @@ public class Wallet : MonoBehaviour {
         popularity.SetValue(popularityLvl);
         if (popularityLvl == 0)
         {
+            GameSession.ReportLevelEndReaon("Out of Public Support!");
             StartCoroutine(DelayLoadScene("EndingAngryMob"));
         }
     }
@@ -79,7 +80,11 @@ public class Wallet : MonoBehaviour {
         {
             balance = Mathf.Clamp(value + balance, 0, 100);
             cash.SetValue(balance);
-            if (balance == 0) StartCoroutine(DelayLoadScene("EndingCash"));
+            if (balance == 0)
+            {
+                GameSession.ReportLevelEndReaon("No Money Left!");
+                StartCoroutine(DelayLoadScene("EndingCash"));
+            }
         }
 
     }

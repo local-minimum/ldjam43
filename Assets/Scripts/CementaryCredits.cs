@@ -14,12 +14,16 @@ public class CementaryCredits : MonoBehaviour {
     Vector2 anchorMin;
     Vector2 anchorMax;
 
+    [SerializeField]
+    Text reason;
+
     bool scroll = false;
 
     private void Awake()
     {
         anchorMin = scroller.anchorMin;
         anchorMax = scroller.anchorMax;
+        reason.text = GameSession.GameOverReason;
     }
 
     public void ShowCredits()

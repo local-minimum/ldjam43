@@ -6,9 +6,11 @@ using UnityEngine.SceneManagement;
 public class GameSession : MonoBehaviour {
 
     static List<string> obituaries = new List<string>();
+    static string activeLevel;
 
-    public static void NewGame()
+    public static void NewGame(string lvl)
     {
+        activeLevel = lvl;
         duration = 0;
         obituaries.Clear();
     }
@@ -23,8 +25,21 @@ public class GameSession : MonoBehaviour {
 
     public static void LoadLastLevel()
     {
-        NewGame();
-        SceneManager.LoadScene("Level A");
+        NewGame(string.IsNullOrEmpty(activeLevel) ? "Level A" : activeLevel);
+        SceneManager.LoadScene(activeLevel);
+    }
+
+
+    private static string lvlEndReason = "Unknown Reason!";
+    public static void ReportLevelEndReaon(string reason)
+    {
+        lvlEndReason = reason;
+    }
+    public static string GameOverReason {
+        get
+        {
+            return lvlEndReason;
+        } 
     }
 
     static float duration;
