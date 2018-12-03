@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/Level A.unity
+    guid: ff3acb50943053e439147fe697c7d9b2
+  - enabled: 1
     path: Assets/Scenes/SampleScene.unity
     guid: 99c9720ab356a0642a771bea13969a05
   - enabled: 1
@@ -17,4 +20,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/EndingCash.unity
     guid: 2018c8732451c7a419264334db4c14f7
+  - enabled: 1
+    path: Assets/Scenes/Cementary.unity
+    guid: 58441806fb117024db50983e2b648395
   m_configObjects: {}

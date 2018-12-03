@@ -7965,6 +7965,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1663530961}
   - component: {fileID: 1663530962}
+  - component: {fileID: 1663530963}
   m_Layer: 0
   m_Name: Animated
   m_TagString: Untagged
@@ -8006,6 +8007,17 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &1663530963
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1663530960}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f8fee4a44dbed94296ad1d0dc127728, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1703661572
 Prefab:
   m_ObjectHideFlags: 0
