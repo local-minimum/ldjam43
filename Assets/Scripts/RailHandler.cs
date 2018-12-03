@@ -8,6 +8,21 @@ public delegate void AccountTransaction(int value, Transform localization);
 public delegate void PopularityGain(int value, Transform localization);
 
 public class RailHandler : MonoBehaviour {
+
+    [SerializeField]
+    AudioSource stationSpeaker;
+    [SerializeField]
+    AudioClip stationSound;
+    [SerializeField, Range(0,1)]
+    float stationSoundLevel = 0.4f;
+
+    [SerializeField]
+    AudioSource accidentsSpeaker;
+    [SerializeField]
+    AudioClip[] accidentSounds;
+    [SerializeField, Range(0, 1)]
+    float accidentsLevel = 0.5f;
+
     [SerializeField]
     int costForTrainsOnRail = -2;
     [SerializeField]
@@ -61,6 +76,7 @@ public class RailHandler : MonoBehaviour {
 
     public void ReportFatality(Train train, Person person)
     {
+        accidentsSpeaker.PlayOneShot(accidentSounds[Random.Range(0, accidentSounds.Length)], accidentsLevel);
         GameSession.AddDeath(person.KillMessage);
         lastKill = Time.timeSinceLevelLoad;
         if (OnFatality != null) OnFatality(train, person);
@@ -93,7 +109,19 @@ public class RailHandler : MonoBehaviour {
 
     public void ArriveAtStation(int income, Transform station)
     {
+        StartCoroutine(PassingStation());
         if (OnTransaction != null) OnTransaction(income, station);
         if (OnPopularityGain != null) OnPopularityGain(GetPopularityGain(), station);
+    }
+
+    IEnumerator<WaitForSeconds> PassingStation()
+    {
+        float wait = 0.7f;
+        stationSpeaker.PlayOneShot(stationSound, stationSoundLevel);
+        yield return new WaitForSeconds(wait);
+        stationSpeaker.PlayOneShot(stationSound, stationSoundLevel);
+        yield return new WaitForSeconds(wait);
+        stationSpeaker.PlayOneShot(stationSound, stationSoundLevel);
+        yield return new WaitForSeconds(wait);
     }
 }
