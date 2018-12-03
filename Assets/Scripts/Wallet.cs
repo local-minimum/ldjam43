@@ -79,7 +79,7 @@ public class Wallet : MonoBehaviour {
         {
             balance = Mathf.Clamp(value + balance, 0, 100);
             cash.SetValue(balance);
-            if (balance == 0) StartCoroutine(DelayLoadScene("EndingOutOfCash"));
+            if (balance == 0) StartCoroutine(DelayLoadScene("EndingCash"));
         }
 
     }

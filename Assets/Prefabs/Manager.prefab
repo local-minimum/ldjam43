@@ -1,0 +1,112 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 1530327523218592}
+  m_IsPrefabAsset: 1
+--- !u!1 &1530327523218592
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4408054572397788}
+  - component: {fileID: 114139235102592742}
+  - component: {fileID: 114205610550376838}
+  - component: {fileID: 114403731717055498}
+  - component: {fileID: 114450496338669056}
+  m_Layer: 0
+  m_Name: Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4408054572397788
+Transform:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1530327523218592}
+  m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
+  m_LocalPosition: {x: 0, y: 1.09, z: -3.01}
+  m_LocalScale: {x: 0.5, y: 0.50000024, z: 0.5000005}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114139235102592742
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1530327523218592}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 35141500b272a4b2eb294b0afc7a48f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  costForTrainsOnRail: -2
+  costFrequency: 5
+  timesWithoutDeathToPopularity:
+  - 5
+  - 10
+  - 20
+--- !u!114 &114205610550376838
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1530327523218592}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76bbfcb91e6838743a837040d22043e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefab: {fileID: 114792431244110410, guid: 58a4ed55807190c4f84d9329ccd22596, type: 2}
+  yard: {fileID: 0}
+  track: 3
+  betweenTrains:
+  - 3
+  - 30
+  - 60
+  - 50
+  - 40
+  - 30
+  - 20
+  - 10
+--- !u!114 &114403731717055498
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1530327523218592}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34543e8b7a8144447963f4fb2cd36470, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  popularity: {fileID: 0}
+  cash: {fileID: 0}
+  balance: 200
+  popularityLvl: 100
+  costOfKilling: 5
+--- !u!114 &114450496338669056
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1530327523218592}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8b41371aa578354e9c1eb68c4410f90, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

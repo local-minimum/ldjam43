@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/EndingCollision.unity
     guid: 4345633557f3b3848970c24a2a12fc49
+  - enabled: 1
+    path: Assets/Scenes/EndingCash.unity
+    guid: 2018c8732451c7a419264334db4c14f7
   m_configObjects: {}

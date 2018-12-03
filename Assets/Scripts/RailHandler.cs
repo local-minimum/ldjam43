@@ -22,6 +22,7 @@ public class RailHandler : MonoBehaviour {
 
     List<Train> trains = new List<Train>();
 	void Start () {
+        GameSession.NewGame();
         rails = FindObjectsOfType<Rail>();
         StartCoroutine(DoCost());
         lastKill = Time.timeSinceLevelLoad;
@@ -57,6 +58,7 @@ public class RailHandler : MonoBehaviour {
 
     public void ReportFatality(Train train, Person person)
     {
+        GameSession.AddDeath(person.KillMessage);
         lastKill = Time.timeSinceLevelLoad;
         if (OnFatality != null) OnFatality(train, person);
     }
