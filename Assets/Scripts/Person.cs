@@ -3,8 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Person : MonoBehaviour {
-
-    private const float stepSize = 1f;
     
     private int age;
     private string personName;
@@ -648,13 +646,14 @@ public class Person : MonoBehaviour {
 
     bool alive = true;
 
-    // Use this for initialization
-    void Start()
+    Rigidbody rb;
+    private void Awake()
     {
-        Recycle();
+        rb = GetComponentInChildren<Rigidbody>();
     }
 
-    // Update is called once per frame
+    private const float velocity = 1.5f;
+
     void Update () {
         if (!alive) return;
         if (OnTarget)
@@ -664,31 +663,32 @@ public class Person : MonoBehaviour {
             pathTargetIdx++;
             if (pathTarget == null)
             {
+                alive = false;
+                gameObject.SetActive(false);
                 if (killCallback != null) killCallback(this);
                 return;
             }
         }
-
-        Vector3 movement = (pathTarget.position - transform.position).normalized * stepSize * Time.deltaTime;
-        movement.y = 0f;        
-        transform.Translate(movement);
+        Vector3 offset = pathTarget.position - rb.transform.position;
+        offset.y = 0;
+        rb.velocity = offset.normalized * velocity;
     }
-
-    [SerializeField]
-    float onTargetThreshold = 0.01f;
+    
+    float onTargetThreshold = 0.05f;
     public bool OnTarget
     {
         get
         {
             if (pathTarget == null) return true;
-            return Vector3.Distance(transform.position, pathTarget.position) < onTargetThreshold;
+            Vector3 offset = rb.transform.position - pathTarget.position;
+            offset.y = 0;
+            return offset.sqrMagnitude < onTargetThreshold;
         }
     }
 
     public void Kill(Vector3 forcePosition, Vector3 forceVector)
     {
         alive = false;
-        Rigidbody rb = GetComponentInChildren<Rigidbody>();
         rb.constraints = RigidbodyConstraints.None;
         rb.AddForceAtPosition(forceVector, forcePosition);
         StartCoroutine(_Kill());
@@ -727,9 +727,14 @@ public class Person : MonoBehaviour {
     {
         alive = true;
         age = Random.Range(1, 100);
+        rb.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ;
+        rb.angularVelocity = Vector3.zero;
+        rb.velocity = Vector3.zero;
+        rb.transform.rotation = Quaternion.identity;
         personName = string.Format("{0} {1}", firstNames[Random.Range(0, firstNames.Length)], lastNames[Random.Range(0, lastNames.Length)]);
         interests = allInterests[Random.Range(0, allInterests.Length)].ToLower();
         gameObject.SetActive(true);
+        
     }
 
     WalkPath path;
@@ -745,7 +750,6 @@ public class Person : MonoBehaviour {
 
     public void SetPersonPosition(Vector3 position)
     {
-        Rigidbody rb = GetComponentInChildren<Rigidbody>();
         Vector3 offset = transform.position - rb.transform.position;
         transform.position = position + offset;
     }

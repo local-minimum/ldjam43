@@ -12,15 +12,19 @@ public class PersonCanvas : MonoBehaviour {
 
     RailHandler handler;
     Person me;
+    Rigidbody meBody;
     Quaternion myRotation;
-    Vector3 myOffset;
+    Vector3 myOffset = new Vector3(0, 5, -1.8f);
 
     private void Awake()
     {
-        handler = FindObjectOfType<RailHandler>();
-        me = GetComponentInParent<Person>();
-        myRotation = transform.rotation;
-        myOffset = transform.position - transform.parent.position;
+        if (handler == null)
+        {
+            handler = FindObjectOfType<RailHandler>();
+            me = GetComponentInParent<Person>();
+            meBody = me.GetComponentInChildren<Rigidbody>();
+            myRotation = transform.rotation;
+        }
     }
 
     private void OnEnable()
@@ -33,10 +37,13 @@ public class PersonCanvas : MonoBehaviour {
         handler.OnFatality -= Handler_OnFatality;
     }
 
+    Vector3 showPosition;
+
     private void Handler_OnFatality(Train train, Person person)
     {        
         if (person == me)
         {
+            showPosition = meBody.transform.position + myOffset;            
             text.text = string.Format("-{0}", costOfKilling);
             GetComponent<Animator>().SetTrigger("Show");
         }
@@ -44,7 +51,7 @@ public class PersonCanvas : MonoBehaviour {
 
     private void LateUpdate()
     {
-        transform.position = transform.parent.position + myOffset;
+        transform.position = showPosition;
         transform.rotation = myRotation;
     }
 }
