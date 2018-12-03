@@ -714,7 +714,6 @@ public class Person : MonoBehaviour {
         "{0}, hope you keep {1} whereever you are now.",
         "In loving memory of {0}, who loved {1}.",
         "{0} (age {2}) will never do {1} again.",
-        "The trains stole {1} from you, {0}.",
         "{0} you died much too young at only {2}.",
         "The trains stole {1} ({2}) from us much too soon."
     };

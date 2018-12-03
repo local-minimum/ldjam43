@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class CementaryCredits : MonoBehaviour {
 
@@ -103,5 +104,10 @@ public class CementaryCredits : MonoBehaviour {
     public void PlayMore()
     {
         GameSession.LoadLastLevel();
+    }
+
+    public void Menu()
+    {
+        SceneManager.LoadScene("Menu");
     }
 }
